@@ -40,6 +40,9 @@ class LoginViewController: UIViewController {
                         let initialView = InitialViewController()
                         self.navigationController?.pushViewController(initialView, animated: true)
                     }
+                    else {
+                        self.errorLabel.isHidden = false
+                    }
                 }
             }
         }
