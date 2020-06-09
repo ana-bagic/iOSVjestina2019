@@ -24,7 +24,10 @@ class InitialViewController: UIViewController {
     }
     
     @IBAction func logoutButton(_ sender: Any) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.removeObject(forKey: "token")
         
+        self.navigationController?.popViewController(animated: true)
     }
     
     func fetchQuiz() {

@@ -29,9 +29,13 @@ class LoginViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     if let jsonDict = json as? [String: Any],
-                        let token = jsonDict["token"] as? String {
+                        let token = jsonDict["token"] as? String,
+                        let id = jsonDict["user_id"] as? String {
                         let userDefaults = UserDefaults.standard
                         userDefaults.set(token, forKey: "token")
+                        userDefaults.set(id, forKey: "id")
+                        
+                        print(jsonDict)
                         
                         let initialView = InitialViewController()
                         self.navigationController?.pushViewController(initialView, animated: true)
@@ -47,7 +51,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.string(forKey: "token") != nil {
+        let userDefaults = UserDefaults.standard
+        if userDefaults.string(forKey: "token") != nil {
             let initialView = InitialViewController()
             self.navigationController?.pushViewController(initialView, animated: true)
         }
