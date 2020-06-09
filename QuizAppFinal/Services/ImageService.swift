@@ -12,7 +12,7 @@ import UIKit
 class ImageService {
     
     func fetchImage(urlString: String, completion: @escaping ((UIImage?) -> Void)){
-
+        
         if let url = URL(string: urlString) {
 
             URLSession.shared.dataTask(with: url) {

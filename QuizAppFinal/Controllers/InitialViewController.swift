@@ -12,6 +12,7 @@ class InitialViewController: UIViewController {
 
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var dohvatiButton: UIButton!
+    @IBOutlet weak var odjaviButton: UIButton!
     @IBOutlet weak var ffLabel: UILabel!
     @IBOutlet weak var quizNameLabel: UILabel!
     @IBOutlet weak var quizImageView: UIImageView!
@@ -20,6 +21,10 @@ class InitialViewController: UIViewController {
     
     @IBAction func fetchButton(_ sender: Any) {
         fetchQuiz()
+    }
+    
+    @IBAction func logoutButton(_ sender: Any) {
+        
     }
     
     func fetchQuiz() {
