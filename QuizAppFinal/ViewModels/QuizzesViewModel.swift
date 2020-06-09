@@ -37,17 +37,14 @@ class QuizzesViewModel {
         }
     }
     
-    // viewModel pruza metode preko kojih se dohvacaju drugi viewModeli koje ce drugi ViewControlleri koristiti
-    /*
-    func viewModel(atIndex index: Int) -> SingleReviewViewModel? {
-        if let reviews = reviews {
-            if index >= 0 && index < reviews.count {
-                return SingleReviewViewModel(review: reviews[index])
+    func viewModel(atIndex index: Int) -> SingleQuizViewModel? {
+        if let quizzes = quizzes {
+            if index >= 0 && index < quizzes.count {
+                return SingleQuizViewModel(quiz: quizzes[index])
             }
         }
         return nil
     }
-    */
 
     func quiz(atIndex index: Int) -> QuizCellModel? {
         guard let quizzes = quizzes else {
@@ -62,16 +59,4 @@ class QuizzesViewModel {
         return quizzes?.count ?? 0
     }
     
-    // Metoda viewModela koju poziva viewController koja je zaduzena za stvaranje novog Reviewa (propagiranje promjene modela)
-    /*
-    func createReview(withText title: String, date: String, summary: String) -> Void {
-        let review = Review(title: title, date: date, summary: summary)
-        
-        // teoretsko pozivanje servisa koji stvara model na serveru i pri povratku sa servera stvara model u bazi podataka
-        ReviewsService().createReview(review) { success in
-            NepoznataBazaPodataka.store(review)
-        }
-        reviews?.append(review)
-    }
-     */
 }

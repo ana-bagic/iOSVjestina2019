@@ -27,6 +27,10 @@
 		52BF6DBC249008E3004AF4B1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 52BF6DBB249008E3004AF4B1 /* Kingfisher */; };
 		52BF6DBF24901CD3004AF4B1 /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BF6DBD24901CD3004AF4B1 /* QuizzesViewController.swift */; };
 		52BF6DC024901CD3004AF4B1 /* QuizzesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BF6DBE24901CD3004AF4B1 /* QuizzesViewController.xib */; };
+		52BF6DC224903623004AF4B1 /* QuizTableSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BF6DC124903623004AF4B1 /* QuizTableSectionHeader.swift */; };
+		52BF6DC424903982004AF4B1 /* SingleQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BF6DC324903982004AF4B1 /* SingleQuizViewModel.swift */; };
+		52BF6DC824903B1E004AF4B1 /* SingleQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BF6DC624903B1E004AF4B1 /* SingleQuizViewController.swift */; };
+		52BF6DC924903B1E004AF4B1 /* SingleQuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BF6DC724903B1E004AF4B1 /* SingleQuizViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,10 @@
 		52BF6DB7249006AA004AF4B1 /* QuizTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizTableViewCell.xib; sourceTree = "<group>"; };
 		52BF6DBD24901CD3004AF4B1 /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
 		52BF6DBE24901CD3004AF4B1 /* QuizzesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizzesViewController.xib; sourceTree = "<group>"; };
+		52BF6DC124903623004AF4B1 /* QuizTableSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTableSectionHeader.swift; sourceTree = "<group>"; };
+		52BF6DC324903982004AF4B1 /* SingleQuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleQuizViewModel.swift; sourceTree = "<group>"; };
+		52BF6DC624903B1E004AF4B1 /* SingleQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleQuizViewController.swift; sourceTree = "<group>"; };
+		52BF6DC724903B1E004AF4B1 /* SingleQuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleQuizViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,7 @@
 				523671E7248B91CE00B8F96E /* QuestionView.swift */,
 				52BF6DB6249006AA004AF4B1 /* QuizTableViewCell.swift */,
 				52BF6DB7249006AA004AF4B1 /* QuizTableViewCell.xib */,
+				52BF6DC124903623004AF4B1 /* QuizTableSectionHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,6 +145,8 @@
 				5288B8DE248D92490070A31B /* LoginViewController.xib */,
 				52BF6DBD24901CD3004AF4B1 /* QuizzesViewController.swift */,
 				52BF6DBE24901CD3004AF4B1 /* QuizzesViewController.xib */,
+				52BF6DC624903B1E004AF4B1 /* SingleQuizViewController.swift */,
+				52BF6DC724903B1E004AF4B1 /* SingleQuizViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -144,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				52BF6DB424900242004AF4B1 /* QuizzesViewModel.swift */,
+				52BF6DC324903982004AF4B1 /* SingleQuizViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -213,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5288B8E0248D92490070A31B /* LoginViewController.xib in Resources */,
+				52BF6DC924903B1E004AF4B1 /* SingleQuizViewController.xib in Resources */,
 				523671D2248B8FEE00B8F96E /* LaunchScreen.storyboard in Resources */,
 				52BF6DC024901CD3004AF4B1 /* QuizzesViewController.xib in Resources */,
 				523671CF248B8FEE00B8F96E /* Assets.xcassets in Resources */,
@@ -230,9 +243,12 @@
 			files = (
 				5288B8DF248D92490070A31B /* LoginViewController.swift in Sources */,
 				523671DE248B911E00B8F96E /* QuizService.swift in Sources */,
+				52BF6DC224903623004AF4B1 /* QuizTableSectionHeader.swift in Sources */,
+				52BF6DC824903B1E004AF4B1 /* SingleQuizViewController.swift in Sources */,
 				52BF6DB8249006AA004AF4B1 /* QuizTableViewCell.swift in Sources */,
 				523671E4248B918400B8F96E /* Quiz.swift in Sources */,
 				52BF6DBF24901CD3004AF4B1 /* QuizzesViewController.swift in Sources */,
+				52BF6DC424903982004AF4B1 /* SingleQuizViewModel.swift in Sources */,
 				523671C6248B8FEA00B8F96E /* AppDelegate.swift in Sources */,
 				523671E8248B91CE00B8F96E /* QuestionView.swift in Sources */,
 				523671E6248B919B00B8F96E /* Question.swift in Sources */,

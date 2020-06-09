@@ -27,7 +27,7 @@ class QuizzesViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         bindViewModel()
-        setupKeyboard()
+        //setupKeyboard()
     }
     
     func setupTableView() {
@@ -61,6 +61,7 @@ class QuizzesViewController: UIViewController {
         }
     }
     
+    /*
     func setupKeyboard() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -86,6 +87,7 @@ class QuizzesViewController: UIViewController {
         }
         return nil
     }
+    */
 }
 
 extension QuizzesViewController: UITableViewDelegate {
@@ -94,31 +96,25 @@ extension QuizzesViewController: UITableViewDelegate {
         return 150.0
     }
     
-    /*
     // view za header jedne sekcije
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = ReviewsTableSectionHeader()
+        let view = QuizTableSectionHeader()
         return view
     }
-    
     
     // visina view-a headera jedne sekcije
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50.0
     }
     
-    
-    // tap na neku celiju na indexPath-u
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // ReviewsViewController ima ReviewsViewModel i iz njega dohvaca sve potrebne podatke, kada s jednog ViewControllera prelazimo na drugi ( bilo pushanjem na navigationController, presentanjem novog ViewControllera u ovaj ViewController) tada iz trenutnog viewModela (ReviewsViewModel) dohvacamo viewModel (SingleReviewViewModel) za iduci ViewCotnroller (SingleReviewViewController)
         if let viewModel = viewModel.viewModel(atIndex: indexPath.row) {
-            let singleReviewViewController = SingleReviewViewController(viewModel: viewModel)
-            navigationController?.pushViewController(singleReviewViewController, animated: true)
+            let singleQuizViewController = SingleQuizViewController(viewModel: viewModel)
+            navigationController?.pushViewController(singleQuizViewController, animated: true)
         }
     }
-    */
 }
 
 extension QuizzesViewController: UITableViewDataSource {

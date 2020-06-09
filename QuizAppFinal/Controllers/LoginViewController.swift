@@ -38,6 +38,7 @@ class LoginViewController: UIViewController {
                         print(jsonDict)
                         
                         let initialView = InitialViewController()
+                        //let initialView = QuizzesViewController(viewModel: QuizzesViewModel())
                         self.navigationController?.pushViewController(initialView, animated: true)
                     }
                     else {
@@ -57,6 +58,7 @@ class LoginViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         if userDefaults.string(forKey: "token") != nil {
             let initialView = InitialViewController()
+            //let initialView = QuizzesViewController(viewModel: QuizzesViewModel())
             self.navigationController?.pushViewController(initialView, animated: true)
         }
         
