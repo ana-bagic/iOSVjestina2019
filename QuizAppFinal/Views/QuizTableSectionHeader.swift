@@ -12,14 +12,24 @@ class QuizTableSectionHeader: UIView {
 
     var titleLabel: UILabel!
     
+    convenience init(frame: CGRect, quiz: Quiz) {
+        self.init(frame: frame)
+        
+        backgroundColor = quiz.category.color
+        if quiz.category == Category.SPORTS {
+            titleLabel.text = "Sports"
+        }
+        else {
+            titleLabel.text = "Science"
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor.lightGray
         titleLabel = UILabel()
-        titleLabel.text = "Reviews"
         titleLabel.font = UIFont.systemFont(ofSize: 20)
-        titleLabel.textColor = UIColor.darkGray
+        titleLabel.textColor = UIColor.black
         self.addSubview(titleLabel)
         //titleLabel.autoPinEdge(.top, to: .top, of: self, withOffset: 16.0)
         //titleLabel.autoAlignAxis(.vertical, toSameAxisOf: self)

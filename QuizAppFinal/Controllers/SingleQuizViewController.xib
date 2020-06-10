@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SingleQuizViewController" customModule="QuizAppFinal" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="RVQ-pH-r0h" id="Zmx-1r-k3q"/>
+                <outlet property="scrollView" destination="NjK-v1-8ol" id="g7f-Yt-Uhs"/>
                 <outlet property="startButton" destination="wy8-LJ-frx" id="Uet-FA-EhO"/>
                 <outlet property="titleLabel" destination="X8z-CE-7Yg" id="y94-h6-NG9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -44,6 +45,12 @@
                         <action selector="startQuiz:" destination="-1" eventType="touchUpInside" id="Lev-93-u3f"/>
                     </connections>
                 </button>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NjK-v1-8ol">
+                    <rect key="frame" x="0.0" y="345" width="414" height="391"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="6px-dh-RLm"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="w3v-fc-hh9"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

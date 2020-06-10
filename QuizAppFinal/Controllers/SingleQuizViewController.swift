@@ -15,12 +15,27 @@ class SingleQuizViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet var viewContainer: UIView!
-    var customView: UIView?
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var viewModel: SingleQuizViewModel!
     
     @IBAction func startQuiz(_ sender: Any) {
-        customView?.isHidden = false
+        scrollView?.isHidden = false
+    }
+    
+    func setupSlideScrollView() {
+        
+        var i = 0
+        if let qs = viewModel.quiz?.questions {
+            
+            scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(qs.count), height: scrollView.frame.height)
+            
+            for question in qs {
+                let customView = QuestionView(frame: CGRect(origin: CGPoint(x: view.frame.width * CGFloat(i), y: 0), size: CGSize(width: view.frame.width, height: scrollView.frame.height)), quest: question)
+                i += 1
+                scrollView.addSubview(customView)
+            }
+        }
     }
     
     convenience init(viewModel: SingleQuizViewModel) {
@@ -31,8 +46,10 @@ class SingleQuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        self.addCustomView(quiz: viewModel.quiz!)
-        customView?.isHidden = true
+        scrollView?.isHidden = true
+        setupSlideScrollView()
+        
+        print(scrollView.frame.height)
     }
 
     func bindViewModel() {
@@ -40,10 +57,4 @@ class SingleQuizViewController: UIViewController {
         imageView.kf.setImage(with: viewModel.imageUrl)
     }
     
-    func addCustomView(quiz: Quiz) {
-        customView?.removeFromSuperview()
-        customView = QuestionView(frame: CGRect(origin: CGPoint(x: 50, y: 350),
-                                size: CGSize(width: 350, height: 350)), quiz: quiz)
-        viewContainer.addSubview(customView!)
-    }
 }

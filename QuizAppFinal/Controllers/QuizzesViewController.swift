@@ -34,7 +34,7 @@ class QuizzesViewController: UIViewController {
         tableView.backgroundColor = UIColor.lightGray
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(QuizzesViewController.refresh), for: UIControl.Event.valueChanged)
@@ -61,7 +61,6 @@ class QuizzesViewController: UIViewController {
         }
     }
     
-    /*
     func setupKeyboard() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -87,7 +86,6 @@ class QuizzesViewController: UIViewController {
         }
         return nil
     }
-    */
 }
 
 extension QuizzesViewController: UITableViewDelegate {

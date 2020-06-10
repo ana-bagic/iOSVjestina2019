@@ -78,7 +78,7 @@ class InitialViewController: UIViewController {
         
         customView?.removeFromSuperview()
         customView = QuestionView(frame: CGRect(origin: CGPoint(x: 57, y: 400),
-                                    size: CGSize(width: 300, height: 350)), quiz: quiz)
+                                                size: CGSize(width: 300, height: 350)), quest: quiz.questions[0])
         viewContainer.addSubview(customView!)
     }
     

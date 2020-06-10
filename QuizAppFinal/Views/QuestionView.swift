@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionView: UIView {
+class QuestionView: UIView, UIScrollViewDelegate {
     
     var question: UILabel?
     var answer1: UIButton?
@@ -59,15 +59,13 @@ class QuestionView: UIView {
         }
     }
     
-    convenience init(frame: CGRect, quiz: Quiz) {
+    convenience init(frame: CGRect, quest: Question) {
         self.init(frame: frame)
         
-        let qNumber = Int.random(in: 0..<quiz.questions.count)
+        question?.text = quest.question
+        let correct = quest.correct_answer
         
-        question?.text = quiz.questions[qNumber].question
-        let correct = quiz.questions[qNumber].correct_answer
-        
-        answer1?.setTitle(quiz.questions[qNumber].answers[0], for: .normal)
+        answer1?.setTitle(quest.answers[0], for: .normal)
         if (correct == 0) {
             answer1?.tag = 1
         }
@@ -76,7 +74,7 @@ class QuestionView: UIView {
         }
         answer1?.addTarget(self, action: #selector(buttonClicked(_: )), for: UIControl.Event.touchUpInside)
         
-        answer2?.setTitle(quiz.questions[qNumber].answers[1], for: .normal)
+        answer2?.setTitle(quest.answers[1], for: .normal)
         if (correct == 1) {
             answer2?.tag = 1
         }
@@ -85,7 +83,7 @@ class QuestionView: UIView {
         }
         answer2?.addTarget(self, action: #selector(buttonClicked(_:)), for: UIControl.Event.touchUpInside)
         
-        answer3?.setTitle(quiz.questions[qNumber].answers[2], for: .normal)
+        answer3?.setTitle(quest.answers[2], for: .normal)
         if (correct == 2) {
             answer3?.tag = 1
         }
@@ -94,7 +92,7 @@ class QuestionView: UIView {
         }
         answer3?.addTarget(self, action: #selector(buttonClicked(_:)), for: UIControl.Event.touchUpInside)
         
-        answer4?.setTitle(quiz.questions[qNumber].answers[3], for: .normal)
+        answer4?.setTitle(quest.answers[3], for: .normal)
         if (correct == 3) {
             answer4?.tag = 1
         }
@@ -108,26 +106,26 @@ class QuestionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     
-        question = UILabel(frame: CGRect(origin: CGPoint(x: 20, y: 10),
+        question = UILabel(frame: CGRect(origin: CGPoint(x: 50, y: 10),
                             size: CGSize(width: 250, height: 80)))
         question?.numberOfLines = 0
         
-        answer1 = UIButton(frame: CGRect(origin: CGPoint(x: 20, y: 100),
+        answer1 = UIButton(frame: CGRect(origin: CGPoint(x: 50, y: 100),
                             size: CGSize(width: 250, height: 35)))
         answer1?.setTitleColor(UIColor.black, for: .normal)
         answer1?.contentHorizontalAlignment = .left
     
-        answer2 = UIButton(frame: CGRect(origin: CGPoint(x: 20, y: 140),
+        answer2 = UIButton(frame: CGRect(origin: CGPoint(x: 50, y: 140),
                             size: CGSize(width: 250, height: 35)))
         answer2?.setTitleColor(UIColor.black, for: .normal)
         answer2?.contentHorizontalAlignment = .left
         
-        answer3 = UIButton(frame: CGRect(origin: CGPoint(x: 20, y: 180),
+        answer3 = UIButton(frame: CGRect(origin: CGPoint(x: 50, y: 180),
                             size: CGSize(width: 250, height: 35)))
         answer3?.setTitleColor(UIColor.black, for: .normal)
         answer3?.contentHorizontalAlignment = .left
         
-        answer4 = UIButton(frame: CGRect(origin: CGPoint(x: 20, y: 220),
+        answer4 = UIButton(frame: CGRect(origin: CGPoint(x: 50, y: 220),
                             size: CGSize(width: 250, height: 35)))
         answer4?.setTitleColor(UIColor.black, for: .normal)
         answer4?.contentHorizontalAlignment = .left
