@@ -97,6 +97,8 @@ extension QuizzesViewController: UITableViewDelegate {
     // view za header jedne sekcije
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = QuizTableSectionHeader()
+        view.titleLabel.text = "Sports"
+        view.titleLabel.textColor = .black
         return view
     }
     

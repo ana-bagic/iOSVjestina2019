@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PureLayout
 
 class QuizTableSectionHeader: UIView {
 
@@ -31,8 +32,8 @@ class QuizTableSectionHeader: UIView {
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.textColor = UIColor.black
         self.addSubview(titleLabel)
-        //titleLabel.autoPinEdge(.top, to: .top, of: self, withOffset: 16.0)
-        //titleLabel.autoAlignAxis(.vertical, toSameAxisOf: self)
+        titleLabel.autoPinEdge(.top, to: .top, of: self, withOffset: 16.0)
+        titleLabel.autoAlignAxis(.vertical, toSameAxisOf: self)
     }
     
     required init?(coder aDecoder: NSCoder) {

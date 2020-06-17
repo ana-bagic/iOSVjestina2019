@@ -48,8 +48,6 @@ class SingleQuizViewController: UIViewController {
         bindViewModel()
         scrollView?.isHidden = true
         setupSlideScrollView()
-        
-        print(scrollView.frame.height)
     }
 
     func bindViewModel() {
