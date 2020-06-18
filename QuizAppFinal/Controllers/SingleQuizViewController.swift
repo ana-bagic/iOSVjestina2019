@@ -38,8 +38,10 @@ class SingleQuizViewController: UIViewController {
         }
         
         if (currentPage + 1 < viewModel.quiz?.questions.count ?? 0) {
+            let screenSize = UIScreen.main.bounds
+            
             var frame: CGRect = self.scrollView.frame
-            frame.origin.x = frame.size.width * CGFloat(currentPage + 1)
+            frame.origin.x = screenSize.width * CGFloat(currentPage + 1)
             frame.origin.y = 0
             self.scrollView.scrollRectToVisible(frame, animated: true)
             
@@ -70,13 +72,17 @@ class SingleQuizViewController: UIViewController {
     }
     
     func setupSlideScrollView() {
+        let screenSize = UIScreen.main.bounds
+        
+        scrollView.frame = CGRect(x: 0, y: screenSize.height/2, width: screenSize.width, height: screenSize.height/2)
+    
         var i = 0
         if let qs = viewModel.quiz?.questions {
             
-            scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(qs.count), height: scrollView.frame.height)
+            scrollView.contentSize = CGSize(width: screenSize.width * CGFloat(qs.count), height: scrollView.frame.height)
             
             for question in qs {
-                let customView = QuestionView(frame: CGRect(origin: CGPoint(x: view.frame.width * CGFloat(i), y: 0), size: CGSize(width: view.frame.width, height: scrollView.frame.height)), quest: question)
+                let customView = QuestionView(frame: CGRect(origin: CGPoint(x: screenSize.width * CGFloat(i), y: 0), size: CGSize(width: screenSize.width, height: scrollView.frame.height)), quest: question)
                 i += 1
                 
                 customView.answer1?.addTarget(self, action: #selector(buttonClicked(_: )), for: UIControl.Event.touchUpInside)

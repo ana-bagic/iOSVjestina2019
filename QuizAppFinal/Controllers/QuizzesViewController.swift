@@ -13,7 +13,7 @@ class QuizzesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl: UIRefreshControl!
-    //var tableFooterView: ReviewsTableViewFooterView!
+    var tableFooterView: QuizTableFooterView!
     let cellReuseIdentifier = "cellReuseIdentifier"
     
     var viewModel: QuizzesViewModel!
@@ -29,8 +29,6 @@ class QuizzesViewController: UIViewController {
         bindViewModel()
         setupTableView()
         setupKeyboard()
-        
-        //print(UserDefaults.standard.)
     }
     
     func setupTableView() {
@@ -38,6 +36,7 @@ class QuizzesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
+        tableView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(QuizzesViewController.refresh), for: UIControl.Event.valueChanged)
@@ -45,10 +44,8 @@ class QuizzesViewController: UIViewController {
 
         tableView.register(UINib(nibName: "QuizTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
         
-        //tableFooterView = ReviewsTableViewFooterView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 200))
-        // ReviewsTableViewFooterView objektu za delegata postavljamo ovaj viewController. Dolje ovaj viewController implementira protokol TableViewFooterViewDelegate
-        //tableFooterView.delegate = self
-        //tableView.tableFooterView = tableFooterView
+        tableFooterView = QuizTableFooterView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70))
+        tableView.tableFooterView = tableFooterView
     }
     
     func bindViewModel() {
@@ -178,18 +175,3 @@ extension QuizzesViewController: UITableViewDataSource {
         }
     }
 }
-
-/*
-// Primjer delegation protokola na nasem custom UIView-u ReviewsTableViewFooterView
-extension ReviewsViewController: TableViewFooterViewDelegate {
-    // Kada se dogodi stvaranje novog review-a u ReviewsTableViewFooterView, on ce to dojaviti svom delegatu (ovom viewControlleru) koji ce se onda dalje pobrinuti za stvaranje review-a
-    func reviewCreated(withText title: String, date: String, summary: String) {
-        // stvaranje review-a se naravno radi u viewModelu
-        viewModel.createReview(withText: title, date: date, summary: summary)
-        // Ovdje, nakon sto smo stvorili novi review, koji ce u konacnici dodati novi review u dataSoruce, mozemo pozvati tableView.reloadData() i tableView ce se osvjeziti novim podacima
-        // ali u ovom trenutku, nakon dodavanja review-a u dataSource, mozemo i 'rucno' dodati jos jedan redak u tablicu (buduci da dataSource u ovom trenutku i ima jedan objekt vise nego sto tableView ima redaka)
-        // Metoda insertRows prima i tip animacije dodavanja redaka, te na ovaj nacin recimo efektnije mozemo osvjeziti tablicu nakon dodavanja jednog retka
-        tableView.insertRows(at: [IndexPath(row: viewModel.numberOfReviews()-1, section: 0)], with: UITableView.RowAnimation.automatic)
-    }
-}
-*/

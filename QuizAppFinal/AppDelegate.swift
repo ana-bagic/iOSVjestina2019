@@ -16,13 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let viewController = LoginViewController()
-        //let viewController = QuizzesViewController(viewModel: QuizzesViewModel())
-        let navigationController = UINavigationController(rootViewController: viewController)
-        window?.rootViewController = navigationController
+        let userDefaults = UserDefaults.standard
+        
+        if (userDefaults.string(forKey: "token") != nil) {
+            setRootQuizController()
+        }
+        else {
+            setRootLoginController()
+        }
+        
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func setRootQuizController() {
+        let viewController = QuizzesViewController(viewModel: QuizzesViewModel())
+        let navigationController = UINavigationController(rootViewController: viewController)
+        window?.rootViewController = navigationController
+    }
+    
+    func setRootLoginController() {
+        let viewController = LoginViewController()
+        window?.rootViewController = viewController
     }
 
     // MARK: UISceneSession Lifecycle

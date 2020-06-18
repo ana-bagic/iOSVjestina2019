@@ -38,9 +38,8 @@ class LoginViewController: UIViewController {
                         
                         print(jsonDict)
                         
-                        //let initialView = InitialViewController()
-                        let initialView = QuizzesViewController(viewModel: QuizzesViewModel())
-                        self.navigationController?.pushViewController(initialView, animated: true)
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.setRootQuizController()
                     }
                     else {
                         self.errorLabel.isHidden = false
@@ -55,13 +54,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let userDefaults = UserDefaults.standard
-        if (userDefaults.string(forKey: "token") != nil) {
-            let initialView = QuizzesViewController(viewModel: QuizzesViewModel())
-            self.navigationController?.pushViewController(initialView, animated: true)
-        }
-        
         self.errorLabel.isHidden = true
         //setupKeyboard()
     }

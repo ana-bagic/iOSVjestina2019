@@ -20,6 +20,7 @@
 		5288B8DC248D8D740070A31B /* InitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5288B8DA248D8D740070A31B /* InitialViewController.xib */; };
 		5288B8DF248D92490070A31B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5288B8DD248D92490070A31B /* LoginViewController.swift */; };
 		5288B8E0248D92490070A31B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5288B8DE248D92490070A31B /* LoginViewController.xib */; };
+		52BD50E2249B69A700DF0E22 /* QuizTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD50E1249B69A700DF0E22 /* QuizTableFooterView.swift */; };
 		52BF6DB0248FE977004AF4B1 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BF6DAF248FE977004AF4B1 /* LoginService.swift */; };
 		52BF6DB524900242004AF4B1 /* QuizzesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BF6DB424900242004AF4B1 /* QuizzesViewModel.swift */; };
 		52BF6DB8249006AA004AF4B1 /* QuizTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BF6DB6249006AA004AF4B1 /* QuizTableViewCell.swift */; };
@@ -51,6 +52,7 @@
 		5288B8DA248D8D740070A31B /* InitialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InitialViewController.xib; sourceTree = "<group>"; };
 		5288B8DD248D92490070A31B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5288B8DE248D92490070A31B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		52BD50E1249B69A700DF0E22 /* QuizTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTableFooterView.swift; sourceTree = "<group>"; };
 		52BF6DAF248FE977004AF4B1 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		52BF6DB424900242004AF4B1 /* QuizzesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewModel.swift; sourceTree = "<group>"; };
 		52BF6DB6249006AA004AF4B1 /* QuizTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTableViewCell.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				52BF6DB6249006AA004AF4B1 /* QuizTableViewCell.swift */,
 				52BF6DB7249006AA004AF4B1 /* QuizTableViewCell.xib */,
 				52BF6DC124903623004AF4B1 /* QuizTableSectionHeader.swift */,
+				52BD50E1249B69A700DF0E22 /* QuizTableFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				52BF6DB0248FE977004AF4B1 /* LoginService.swift in Sources */,
 				523671E2248B916A00B8F96E /* Category.swift in Sources */,
 				5288B8DB248D8D740070A31B /* InitialViewController.swift in Sources */,
+				52BD50E2249B69A700DF0E22 /* QuizTableFooterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
