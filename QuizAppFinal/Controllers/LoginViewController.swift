@@ -35,11 +35,12 @@ class LoginViewController: UIViewController {
                         let userDefaults = UserDefaults.standard
                         userDefaults.set(token, forKey: "token")
                         userDefaults.set(id, forKey: "user_id")
+                        userDefaults.set(username, forKey: "username")
                         
                         print(jsonDict)
                         
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.setRootQuizController()
+                        appDelegate.setRootTabBarController()
                     }
                     else {
                         self.errorLabel.isHidden = false

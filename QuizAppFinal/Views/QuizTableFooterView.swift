@@ -29,7 +29,7 @@ class QuizTableFooterView: UIView {
         
         logoutButton = UIButton()
         logoutButton.setTitle("Logout", for: UIControl.State.normal)
-        logoutButton.titleLabel?.font = UIFont(name: "System Semibold", size: 18)
+        logoutButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         logoutButton.backgroundColor = .systemBlue
         addSubview(logoutButton)
         

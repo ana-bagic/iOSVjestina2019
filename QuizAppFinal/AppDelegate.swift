@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userDefaults = UserDefaults.standard
         
         if (userDefaults.string(forKey: "token") != nil) {
-            setRootQuizController()
+            setRootTabBarController()
         }
         else {
             setRootLoginController()
@@ -30,10 +30,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func setRootQuizController() {
-        let viewController = QuizzesViewController(viewModel: QuizzesViewModel())
-        let navigationController = UINavigationController(rootViewController: viewController)
-        window?.rootViewController = navigationController
+    func setRootTabBarController() {
+        
+        let firstViewController = QuizzesViewController(viewModel: QuizzesViewModel())
+        let navigationController = UINavigationController(rootViewController: firstViewController)
+        navigationController.tabBarItem = UITabBarItem(title: "Kvizovi", image: nil, selectedImage: nil)
+        
+        let secondViewController = SearchViewController()
+        secondViewController.tabBarItem = UITabBarItem(title: "Search", image: nil, selectedImage: nil)
+        
+        let thirdViewController = SettingsViewController()
+        thirdViewController.tabBarItem = UITabBarItem(title: "Postavke", image: nil, selectedImage: nil)
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [navigationController, secondViewController, thirdViewController]
+        
+        let fontAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
+        UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
+        
+        window?.rootViewController = tabBarController
     }
     
     func setRootLoginController() {
