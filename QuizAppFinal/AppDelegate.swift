@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.tabBarItem = UITabBarItem(title: "Kvizovi", image: nil, selectedImage: nil)
         
         let secondViewController = SearchViewController()
-        secondViewController.tabBarItem = UITabBarItem(title: "Search", image: nil, selectedImage: nil)
+        secondViewController.tabBarItem = UITabBarItem(title: "Pretraži", image: nil, selectedImage: nil)
         
         let thirdViewController = SettingsViewController()
         thirdViewController.tabBarItem = UITabBarItem(title: "Postavke", image: nil, selectedImage: nil)

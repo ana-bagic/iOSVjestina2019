@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		523671C6248B8FEA00B8F96E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523671C5248B8FEA00B8F96E /* AppDelegate.swift */; };
 		523671CF248B8FEE00B8F96E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523671CE248B8FEE00B8F96E /* Assets.xcassets */; };
-		523671D2248B8FEE00B8F96E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523671D0248B8FEE00B8F96E /* LaunchScreen.storyboard */; };
 		523671DE248B911E00B8F96E /* QuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523671DD248B911E00B8F96E /* QuizService.swift */; };
 		523671E0248B914A00B8F96E /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523671DF248B914A00B8F96E /* ImageService.swift */; };
 		523671E2248B916A00B8F96E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523671E1248B916A00B8F96E /* Category.swift */; };
@@ -46,7 +45,6 @@
 		523671C2248B8FEA00B8F96E /* QuizAppFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizAppFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523671C5248B8FEA00B8F96E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		523671CE248B8FEE00B8F96E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		523671D1248B8FEE00B8F96E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		523671D3248B8FEE00B8F96E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		523671DD248B911E00B8F96E /* QuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizService.swift; sourceTree = "<group>"; };
 		523671DF248B914A00B8F96E /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				52BD50EB249B930500DF0E22 /* Nepotrebno */,
 				523671C5248B8FEA00B8F96E /* AppDelegate.swift */,
 				523671CE248B8FEE00B8F96E /* Assets.xcassets */,
-				523671D0248B8FEE00B8F96E /* LaunchScreen.storyboard */,
 				523671D3248B8FEE00B8F96E /* Info.plist */,
 				523671D9248B90C300B8F96E /* Services */,
 				523671DA248B90CE00B8F96E /* Models */,
@@ -282,7 +279,6 @@
 				52BD50EA249B8A9200DF0E22 /* LeaderboardViewController.xib in Resources */,
 				5288B8E0248D92490070A31B /* LoginViewController.xib in Resources */,
 				52BF6DC924903B1E004AF4B1 /* SingleQuizViewController.xib in Resources */,
-				523671D2248B8FEE00B8F96E /* LaunchScreen.storyboard in Resources */,
 				52BD50E6249B8A1A00DF0E22 /* SettingsViewController.xib in Resources */,
 				52BF6DC024901CD3004AF4B1 /* QuizzesViewController.xib in Resources */,
 				523671CF248B8FEE00B8F96E /* Assets.xcassets in Resources */,
@@ -366,17 +362,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		523671D0248B8FEE00B8F96E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				523671D1248B8FEE00B8F96E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		523671D4248B8FEE00B8F96E /* Debug */ = {
