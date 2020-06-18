@@ -11,6 +11,7 @@ import Kingfisher
 
 class SingleQuizViewController: UIViewController {
 
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var startButton: UIButton!
@@ -50,7 +51,6 @@ class SingleQuizViewController: UIViewController {
         else {
             endTime = Date()
             sendToServer()
-            //print(endTime.timeIntervalSince(startTime))
         }
     }
     
@@ -59,15 +59,26 @@ class SingleQuizViewController: UIViewController {
         
         let time = endTime.timeIntervalSince(startTime)
         let userDefaults = UserDefaults.standard
-        if let quiz_id = viewModel.quiz?.id, let user_id = userDefaults.string(forKey: "user_id") {
+        if let quiz_id = viewModel.quiz?.id,
+            let user_id = userDefaults.string(forKey: "user_id") {
             finishedQuizService.send(quiz: quiz_id, user: user_id, time: time, correct: numberOfCorrect) { (json) in
                 
                 DispatchQueue.main.async {
                     if let jsonDict = json as? [String: Any] {
                         print(jsonDict)
+                        
+                        if let navController = self.navigationController {
+                            navController.popViewController(animated: true)
+                        }
+                    }
+                    else {
+                        self.errorLabel.isHidden = false
                     }
                 }
             }
+        }
+        else {
+            self.errorLabel.isHidden = false
         }
     }
     
@@ -103,7 +114,8 @@ class SingleQuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        scrollView?.isHidden = true
+        self.scrollView?.isHidden = true
+        self.errorLabel.isHidden = true
         setupSlideScrollView()
     }
 
