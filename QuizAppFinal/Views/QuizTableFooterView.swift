@@ -31,6 +31,7 @@ class QuizTableFooterView: UIView {
         logoutButton.setTitle("Logout", for: UIControl.State.normal)
         logoutButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         logoutButton.backgroundColor = .systemBlue
+        logoutButton.layer.cornerRadius = 4
         addSubview(logoutButton)
         
         logoutButton.autoAlignAxis(.vertical, toSameAxisOf: self)

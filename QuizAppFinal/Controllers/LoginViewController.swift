@@ -10,6 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var appNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -56,6 +57,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.errorLabel.isHidden = true
+        loginButton.layer.cornerRadius = 4
         //setupKeyboard()
     }
     

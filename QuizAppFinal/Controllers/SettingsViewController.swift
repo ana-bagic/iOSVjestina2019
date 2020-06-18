@@ -26,6 +26,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        logoutButton.layer.cornerRadius = 4
+        
         let userDefaults = UserDefaults.standard
         if let username = userDefaults.string(forKey: "username") {
             usernameLabel.text = "Username: " + username

@@ -1,21 +1,20 @@
 //
-//  QuizViewModel.swift
+//  LeaderboardViewModel.swift
 //  QuizAppFinal
 //
-//  Created by five on 09/06/2020.
+//  Created by five on 18/06/2020.
 //  Copyright © 2020 five. All rights reserved.
 //
 
 import Foundation
 
-struct QuizCellModel {
+struct LeaderboardCellModel {
     
     let title: String
     let description: String
     let level: Int
     let category: Category
     let imageUrl: URL?
-    let id: Int
     
     init(quiz: Quiz) {
         self.title = quiz.title
@@ -23,39 +22,31 @@ struct QuizCellModel {
         self.level = quiz.level
         self.category = quiz.category
         self.imageUrl = URL(string: quiz.image)
-        self.id = quiz.id
     }
 }
 
-class QuizzesViewModel {
+class LeaderboardViewModel {
     
-    var quizzes: [Quiz]?
+    var quizzes: Any?
     
-    func fetchQuiz(completion: @escaping (() -> Void))  {
+    func getData(urlString: String, completion: @escaping (() -> Void))  {
         
-        let quizService = QuizService()
+        let leaderboardService = LeaderboardService()
         
-        quizService.fetchQuiz { [weak self] (quizzes) in
+        leaderboardService.getData(urlString: urlString) { [weak self] (quizzes) in
             self?.quizzes = quizzes
+            
+            print(quizzes!)
+            
             completion()
         }
     }
     
+    /*
     func viewModel(atIndex index: Int) -> SingleQuizViewModel? {
         if let quizzes = quizzes {
             if index >= 0 && index < quizzes.count {
                 return SingleQuizViewModel(quiz: quizzes[index])
-            }
-        }
-        return nil
-    }
-    
-    func viewModelForId(id: Int) -> QuizCellModel? {
-        if let quizzes = quizzes {
-            for i in 0...numberOfQuizzes() - 1 {
-                if quizzes[i].id == id {
-                    return QuizCellModel(quiz: quizzes[i])
-                }
             }
         }
         return nil
@@ -73,5 +64,6 @@ class QuizzesViewModel {
     func numberOfQuizzes() -> Int {
         return quizzes?.count ?? 0
     }
+    */
     
 }

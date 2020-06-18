@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="errorLabel" destination="fae-jB-n4R" id="qM2-4H-X2o"/>
                 <outlet property="imageView" destination="RVQ-pH-r0h" id="Zmx-1r-k3q"/>
+                <outlet property="leaderboardButton" destination="GIZ-TZ-dRE" id="HFc-nx-zR7"/>
                 <outlet property="scrollView" destination="NjK-v1-8ol" id="g7f-Yt-Uhs"/>
                 <outlet property="startButton" destination="wy8-LJ-frx" id="Uet-FA-EhO"/>
                 <outlet property="titleLabel" destination="X8z-CE-7Yg" id="y94-h6-NG9"/>
@@ -37,7 +38,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wy8-LJ-frx">
-                    <rect key="frame" x="137.66666666666666" y="306" width="100" height="34"/>
+                    <rect key="frame" x="50" y="308" width="100" height="34"/>
                     <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="l56-aN-IKh"/>
@@ -62,15 +63,32 @@
                     <color key="textColor" red="0.83871351520000004" green="0.19507266400000001" blue="0.16365189429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIZ-TZ-dRE">
+                    <rect key="frame" x="185" y="308" width="125" height="34"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="125" id="vSH-tT-HjX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <state key="normal" title="Leaderboard">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="leaderboard:" destination="-1" eventType="touchUpInside" id="51r-0N-O5U"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="RVQ-pH-r0h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0sG-4k-OfX"/>
-                <constraint firstItem="wy8-LJ-frx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GHr-gN-niO"/>
+                <constraint firstItem="GIZ-TZ-dRE" firstAttribute="top" secondItem="RVQ-pH-r0h" secondAttribute="bottom" constant="12" id="66m-0D-bTa"/>
                 <constraint firstItem="fae-jB-n4R" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NFo-0z-b7k"/>
                 <constraint firstItem="X8z-CE-7Yg" firstAttribute="top" secondItem="fae-jB-n4R" secondAttribute="bottom" constant="10" id="SAO-t1-mn9"/>
+                <constraint firstItem="GIZ-TZ-dRE" firstAttribute="top" secondItem="wy8-LJ-frx" secondAttribute="top" id="Vbc-OJ-qzl"/>
+                <constraint firstItem="wy8-LJ-frx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="YNG-2Z-9O3"/>
+                <constraint firstItem="wy8-LJ-frx" firstAttribute="top" secondItem="RVQ-pH-r0h" secondAttribute="bottom" constant="12" id="bBz-Ec-Xfz"/>
                 <constraint firstItem="fae-jB-n4R" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="bnq-uj-P35"/>
-                <constraint firstItem="wy8-LJ-frx" firstAttribute="top" secondItem="RVQ-pH-r0h" secondAttribute="bottom" constant="10" id="eAr-60-9BX"/>
+                <constraint firstItem="GIZ-TZ-dRE" firstAttribute="leading" secondItem="wy8-LJ-frx" secondAttribute="trailing" constant="35" id="l7G-Hh-Anl"/>
                 <constraint firstItem="RVQ-pH-r0h" firstAttribute="top" secondItem="X8z-CE-7Yg" secondAttribute="bottom" constant="10" id="lOp-qQ-BSX"/>
                 <constraint firstItem="X8z-CE-7Yg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uOV-sz-4rA"/>
             </constraints>

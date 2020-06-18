@@ -15,6 +15,7 @@ class SingleQuizViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var leaderboardButton: UIButton!
     @IBOutlet var viewContainer: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -27,6 +28,11 @@ class SingleQuizViewController: UIViewController {
     @IBAction func startQuiz(_ sender: Any) {
         scrollView?.isHidden = false
         startTime = Date()
+    }
+    
+    @IBAction func leaderboard(_ sender: Any) {
+        let leaderboardViewController = LeaderboardViewController(viewModel: LeaderboardViewModel())
+        navigationController?.pushViewController(leaderboardViewController, animated: true)
     }
     
     @objc func buttonClicked(_ sender: UIButton) {
@@ -116,6 +122,9 @@ class SingleQuizViewController: UIViewController {
         bindViewModel()
         self.scrollView?.isHidden = true
         self.errorLabel.isHidden = true
+        self.startButton.layer.cornerRadius = 4
+        self.leaderboardButton.layer.cornerRadius = 4
+        
         setupSlideScrollView()
     }
 

@@ -33,17 +33,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setRootTabBarController() {
         
         let firstViewController = QuizzesViewController(viewModel: QuizzesViewModel())
-        let navigationController = UINavigationController(rootViewController: firstViewController)
-        navigationController.tabBarItem = UITabBarItem(title: "Kvizovi", image: nil, selectedImage: nil)
+        let navigationController1 = UINavigationController(rootViewController: firstViewController)
+        navigationController1.tabBarItem = UITabBarItem(title: "Kvizovi", image: nil, selectedImage: nil)
         
-        let secondViewController = SearchViewController()
-        secondViewController.tabBarItem = UITabBarItem(title: "Pretraži", image: nil, selectedImage: nil)
+        let secondViewController = SearchViewController(viewModel: QuizzesViewModel())
+        let navigationController2 = UINavigationController(rootViewController: secondViewController)
+        navigationController2.tabBarItem = UITabBarItem(title: "Pretraži", image: nil, selectedImage: nil)
         
         let thirdViewController = SettingsViewController()
         thirdViewController.tabBarItem = UITabBarItem(title: "Postavke", image: nil, selectedImage: nil)
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [navigationController, secondViewController, thirdViewController]
+        tabBarController.viewControllers = [navigationController1, navigationController2, thirdViewController]
         
         let fontAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
         UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
