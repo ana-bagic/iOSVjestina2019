@@ -17,6 +17,7 @@ class QuizTableViewCell: UITableViewCell {
     @IBOutlet weak var level1: UIImageView!
     @IBOutlet weak var level2: UIImageView!
     @IBOutlet weak var level3: UIImageView!
+    @IBOutlet weak var mainView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,7 @@ class QuizTableViewCell: UITableViewCell {
         level1.isHidden = true
         level2.isHidden = true
         level3.isHidden = true
+        mainView.frame.size.width = UIScreen.main.bounds.size.width
     }
 
     override func prepareForReuse() {

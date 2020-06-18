@@ -13,18 +13,6 @@ class QuizTableSectionHeader: UIView {
 
     var titleLabel: UILabel!
     
-    convenience init(frame: CGRect, quiz: Quiz) {
-        self.init(frame: frame)
-        
-        backgroundColor = quiz.category.color
-        if quiz.category == Category.SPORTS {
-            titleLabel.text = "Sports"
-        }
-        else {
-            titleLabel.text = "Science"
-        }
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

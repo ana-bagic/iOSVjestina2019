@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet var loginView: UIView!
     
     @IBAction func login(_ sender: Any) {
         loginUser()
@@ -30,15 +31,15 @@ class LoginViewController: UIViewController {
                 DispatchQueue.main.async {
                     if let jsonDict = json as? [String: Any],
                         let token = jsonDict["token"] as? String,
-                        let id = jsonDict["user_id"] as? String {
+                        let id = jsonDict["user_id"] as? Int {
                         let userDefaults = UserDefaults.standard
                         userDefaults.set(token, forKey: "token")
-                        userDefaults.set(id, forKey: "id")
+                        userDefaults.set(id, forKey: "user_id")
                         
                         print(jsonDict)
                         
-                        let initialView = InitialViewController()
-                        //let initialView = QuizzesViewController(viewModel: QuizzesViewModel())
+                        //let initialView = InitialViewController()
+                        let initialView = QuizzesViewController(viewModel: QuizzesViewModel())
                         self.navigationController?.pushViewController(initialView, animated: true)
                     }
                     else {
@@ -56,12 +57,42 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         let userDefaults = UserDefaults.standard
-        if userDefaults.string(forKey: "token") != nil {
-            //let initialView = InitialViewController()
+        if (userDefaults.string(forKey: "token") != nil) {
             let initialView = QuizzesViewController(viewModel: QuizzesViewModel())
             self.navigationController?.pushViewController(initialView, animated: true)
         }
         
         self.errorLabel.isHidden = true
+        //setupKeyboard()
     }
+    
+    /*
+    func setupKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardHeight = getKeyboardHeight(notification: notification) {
+            loginView.frame.origin.y = -100
+            //loginView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification){
+        if let keyboardHeight = getKeyboardHeight(notification: notification) {
+            loginView.frame.origin.y = 0
+            //loginView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+        }
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat? {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            return keyboardHeight
+        }
+        return nil
+    }
+    */
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -9,58 +9,76 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="190" id="KGk-i7-Jjw" customClass="QuizTableViewCell" customModule="QuizAppFinal" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="190"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="181" id="KGk-i7-Jjw" customClass="QuizTableViewCell" customModule="QuizAppFinal" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="399" height="181"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="190"/>
+                <rect key="frame" x="0.0" y="0.0" width="399" height="181"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahn-qq-2K8">
-                        <rect key="frame" x="12" y="41" width="100" height="100"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ahn-qq-2K8">
+                        <rect key="frame" x="12" y="40.666666666666657" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="2RL-0F-aLM"/>
+                            <constraint firstAttribute="height" constant="100" id="g0n-Td-ZYx"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quiz title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysj-yt-PX4">
-                        <rect key="frame" x="127" y="53" width="250" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysj-yt-PX4">
+                        <rect key="frame" x="124" y="60.666666666666664" width="67.666666666666686" height="19.333333333333336"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quiz description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-dB-YeZ">
-                        <rect key="frame" x="127" y="78" width="197" height="63"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-dB-YeZ">
+                        <rect key="frame" x="124" y="90" width="200" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="Typ-Xh-u2S"/>
+                            <constraint firstAttribute="width" constant="200" id="rp5-AZ-6o5"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sparkles" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ILY-Wb-bj2">
-                        <rect key="frame" x="346" y="21" width="25" height="25"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sparkles" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ILY-Wb-bj2">
+                        <rect key="frame" x="351" y="9.3333333333333321" width="19" height="21"/>
                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sparkles" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZR5-0t-4pw">
-                        <rect key="frame" x="370" y="21" width="25" height="25"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sparkles" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZR5-0t-4pw">
+                        <rect key="frame" x="370" y="9.3333333333333321" width="19" height="21"/>
                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sparkles" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fR2-g7-92l">
-                        <rect key="frame" x="322" y="21" width="25" height="25"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sparkles" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fR2-g7-92l">
+                        <rect key="frame" x="332" y="9.3333333333333321" width="19" height="21"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ZR5-0t-4pw" secondAttribute="trailing" constant="10" id="86L-VJ-rTH"/>
+                    <constraint firstItem="ZR5-0t-4pw" firstAttribute="leading" secondItem="ILY-Wb-bj2" secondAttribute="trailing" id="FKZ-0v-xmO"/>
+                    <constraint firstItem="ILY-Wb-bj2" firstAttribute="leading" secondItem="fR2-g7-92l" secondAttribute="trailing" id="Kha-mi-rFr"/>
+                    <constraint firstItem="ZR5-0t-4pw" firstAttribute="top" secondItem="fR2-g7-92l" secondAttribute="top" id="LmP-vL-cLp"/>
+                    <constraint firstItem="cmH-dB-YeZ" firstAttribute="top" secondItem="ysj-yt-PX4" secondAttribute="bottom" constant="10" id="PQ4-pP-7yR"/>
+                    <constraint firstItem="ILY-Wb-bj2" firstAttribute="top" secondItem="fR2-g7-92l" secondAttribute="top" id="Uwo-tv-zcF"/>
+                    <constraint firstItem="ahn-qq-2K8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="V33-Lp-Zbk"/>
+                    <constraint firstItem="ysj-yt-PX4" firstAttribute="leading" secondItem="ahn-qq-2K8" secondAttribute="trailing" constant="12" id="Yux-9o-NfH"/>
+                    <constraint firstItem="ysj-yt-PX4" firstAttribute="top" secondItem="ahn-qq-2K8" secondAttribute="top" constant="20" id="bHo-b1-5bf"/>
+                    <constraint firstItem="cmH-dB-YeZ" firstAttribute="leading" secondItem="ysj-yt-PX4" secondAttribute="leading" id="eml-Wn-W2T"/>
+                    <constraint firstItem="cmH-dB-YeZ" firstAttribute="leading" secondItem="ahn-qq-2K8" secondAttribute="trailing" constant="12" id="m7J-19-fBE"/>
+                    <constraint firstItem="ZR5-0t-4pw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="wNB-Ay-8L4"/>
+                    <constraint firstItem="ahn-qq-2K8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="xlc-gr-7tf"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="level1" destination="ZR5-0t-4pw" id="tkq-D0-qpT"/>
                 <outlet property="level2" destination="ILY-Wb-bj2" id="pTn-yN-VvO"/>
                 <outlet property="level3" destination="fR2-g7-92l" id="uWC-C8-9vN"/>
+                <outlet property="mainView" destination="H2p-sc-9uM" id="Nuf-da-3JL"/>
                 <outlet property="quizDescription" destination="cmH-dB-YeZ" id="0iU-Cs-2gx"/>
                 <outlet property="quizImage" destination="ahn-qq-2K8" id="TlN-r8-QQY"/>
                 <outlet property="quizTitle" destination="ysj-yt-PX4" id="ecl-CB-v8q"/>
             </connections>
-            <point key="canvasLocation" x="194.20289855072465" y="154.89130434782609"/>
+            <point key="canvasLocation" x="194.92753623188406" y="151.22282608695653"/>
         </tableViewCell>
     </objects>
     <resources>

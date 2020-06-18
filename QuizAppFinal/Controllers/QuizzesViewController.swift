@@ -17,6 +17,7 @@ class QuizzesViewController: UIViewController {
     let cellReuseIdentifier = "cellReuseIdentifier"
     
     var viewModel: QuizzesViewModel!
+    var numberOfQuizzes = 1
     
     convenience init(viewModel: QuizzesViewModel) {
         self.init()
@@ -25,9 +26,11 @@ class QuizzesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
         bindViewModel()
-        //setupKeyboard()
+        setupTableView()
+        setupKeyboard()
+        
+        //print(UserDefaults.standard.)
     }
     
     func setupTableView() {
@@ -50,6 +53,7 @@ class QuizzesViewController: UIViewController {
     
     func bindViewModel() {
         viewModel.fetchQuiz {
+            self.numberOfQuizzes = self.viewModel.numberOfQuizzes()
             self.refresh()
         }
     }
@@ -86,23 +90,40 @@ class QuizzesViewController: UIViewController {
         }
         return nil
     }
+    
+    func countCategoryQuizzes(category: Category) -> Int {
+        var x = 0
+        
+        for i in 0...numberOfQuizzes - 1 {
+            if viewModel.quiz(atIndex: i)?.category == category {
+                x += 1
+            }
+        }
+        
+        return x
+    }
 }
 
 extension QuizzesViewController: UITableViewDelegate {
-    // visinu celije za oderedeni indexPath
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150.0
+        return 140.0
     }
     
-    // view za header jedne sekcije
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = QuizTableSectionHeader()
-        view.titleLabel.text = "Sports"
-        view.titleLabel.textColor = .black
+        
+        switch section {
+        case 0:
+            view.titleLabel.text = Category.SPORTS.rawValue
+            view.backgroundColor = Category.SPORTS.color
+        default:
+            view.titleLabel.text = Category.SCIENCE.rawValue
+            view.backgroundColor = Category.SCIENCE.color
+        }
+        
         return view
     }
     
-    // visina view-a headera jedne sekcije
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50.0
     }
@@ -110,33 +131,51 @@ extension QuizzesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let viewModel = viewModel.viewModel(atIndex: indexPath.row) {
-            let singleQuizViewController = SingleQuizViewController(viewModel: viewModel)
-            navigationController?.pushViewController(singleQuizViewController, animated: true)
+        switch indexPath.section {
+        case 0:
+            if let viewModel = viewModel.viewModel(atIndex: indexPath.row) {
+                let singleQuizViewController = SingleQuizViewController(viewModel: viewModel)
+                navigationController?.pushViewController(singleQuizViewController, animated: true)
+            }
+        default:
+            if let viewModel = viewModel.viewModel(atIndex: countCategoryQuizzes(category: Category.SPORTS) + indexPath.row) {
+                let singleQuizViewController = SingleQuizViewController(viewModel: viewModel)
+                navigationController?.pushViewController(singleQuizViewController, animated: true)
+            }
         }
     }
 }
 
 extension QuizzesViewController: UITableViewDataSource {
     
-    // UITableViewCell koji ce prikazati za odredeni indexPath
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! QuizTableViewCell
         
-        if let quiz = viewModel.quiz(atIndex: indexPath.row) {
-            cell.setup(withQuiz: quiz)
+        if indexPath.section == 0 {
+            if let quiz = viewModel.quiz(atIndex: indexPath.row) {
+                cell.setup(withQuiz: quiz)
+            }
+        }
+        else {
+            if let quiz = viewModel.quiz(atIndex: countCategoryQuizzes(category: Category.SPORTS) + indexPath.row) {
+                cell.setup(withQuiz: quiz)
+            }
         }
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return Category.numberOfCat
     }
     
-    // broj redaka koje treba prikazati u tablici
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfQuizzes()
+        if (section == 0) {
+            return countCategoryQuizzes(category: Category.SPORTS)
+        }
+        else {
+            return countCategoryQuizzes(category: Category.SCIENCE)
+        }
     }
 }
 

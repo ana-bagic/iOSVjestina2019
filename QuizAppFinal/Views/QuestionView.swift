@@ -16,6 +16,7 @@ class QuestionView: UIView, UIScrollViewDelegate {
     var answer3: UIButton?
     var answer4: UIButton?
     
+    /*
     func removeButtonColor () {
         answer1?.backgroundColor = .white
         answer2?.backgroundColor = .white
@@ -58,6 +59,7 @@ class QuestionView: UIView, UIScrollViewDelegate {
             }
         }
     }
+    */
     
     convenience init(frame: CGRect, quest: Question) {
         self.init(frame: frame)
@@ -72,7 +74,7 @@ class QuestionView: UIView, UIScrollViewDelegate {
         else {
             answer1?.tag = 0
         }
-        answer1?.addTarget(self, action: #selector(buttonClicked(_: )), for: UIControl.Event.touchUpInside)
+        //answer1?.addTarget(self, action: #selector(buttonClicked(_: )), for: UIControl.Event.touchUpInside)
         
         answer2?.setTitle(quest.answers[1], for: .normal)
         if (correct == 1) {
@@ -81,7 +83,7 @@ class QuestionView: UIView, UIScrollViewDelegate {
         else {
             answer2?.tag = 0
         }
-        answer2?.addTarget(self, action: #selector(buttonClicked(_:)), for: UIControl.Event.touchUpInside)
+        //answer2?.addTarget(self, action: #selector(buttonClicked(_:)), for: UIControl.Event.touchUpInside)
         
         answer3?.setTitle(quest.answers[2], for: .normal)
         if (correct == 2) {
@@ -90,7 +92,7 @@ class QuestionView: UIView, UIScrollViewDelegate {
         else {
             answer3?.tag = 0
         }
-        answer3?.addTarget(self, action: #selector(buttonClicked(_:)), for: UIControl.Event.touchUpInside)
+        //answer3?.addTarget(self, action: #selector(buttonClicked(_:)), for: UIControl.Event.touchUpInside)
         
         answer4?.setTitle(quest.answers[3], for: .normal)
         if (correct == 3) {
@@ -99,7 +101,7 @@ class QuestionView: UIView, UIScrollViewDelegate {
         else {
             answer4?.tag = 0
         }
-        answer4?.addTarget(self, action: #selector(buttonClicked(_:)), for: UIControl.Event.touchUpInside)
+        //answer4?.addTarget(self, action: #selector(buttonClicked(_:)), for: UIControl.Event.touchUpInside)
         
     }
     
@@ -149,8 +151,6 @@ class QuestionView: UIView, UIScrollViewDelegate {
         if let answer4 = answer4 {
             self.addSubview(answer4)
         }
-        
-        //self.backgroundColor = UIColor.purple
     }
     
     required init?(coder: NSCoder) {

@@ -30,6 +30,7 @@
 		52BF6DC424903982004AF4B1 /* SingleQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BF6DC324903982004AF4B1 /* SingleQuizViewModel.swift */; };
 		52BF6DC824903B1E004AF4B1 /* SingleQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BF6DC624903B1E004AF4B1 /* SingleQuizViewController.swift */; };
 		52BF6DC924903B1E004AF4B1 /* SingleQuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BF6DC724903B1E004AF4B1 /* SingleQuizViewController.xib */; };
+		52E3CC35249A79F400B9E23C /* FinishedQuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3CC34249A79F400B9E23C /* FinishedQuizService.swift */; };
 		5E2EC9DA9B66F5589DC73CFC /* Pods_QuizAppFinal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FE880B884502B20AC62D02 /* Pods_QuizAppFinal.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		52BF6DC324903982004AF4B1 /* SingleQuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleQuizViewModel.swift; sourceTree = "<group>"; };
 		52BF6DC624903B1E004AF4B1 /* SingleQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleQuizViewController.swift; sourceTree = "<group>"; };
 		52BF6DC724903B1E004AF4B1 /* SingleQuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleQuizViewController.xib; sourceTree = "<group>"; };
+		52E3CC34249A79F400B9E23C /* FinishedQuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedQuizService.swift; sourceTree = "<group>"; };
 		86FE880B884502B20AC62D02 /* Pods_QuizAppFinal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuizAppFinal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D587F53D675FE0F95AB170B6 /* Pods-QuizAppFinal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizAppFinal.debug.xcconfig"; path = "Target Support Files/Pods-QuizAppFinal/Pods-QuizAppFinal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 				523671DD248B911E00B8F96E /* QuizService.swift */,
 				523671DF248B914A00B8F96E /* ImageService.swift */,
 				52BF6DAF248FE977004AF4B1 /* LoginService.swift */,
+				52E3CC34249A79F400B9E23C /* FinishedQuizService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				523671DE248B911E00B8F96E /* QuizService.swift in Sources */,
 				52BF6DC224903623004AF4B1 /* QuizTableSectionHeader.swift in Sources */,
 				52BF6DC824903B1E004AF4B1 /* SingleQuizViewController.swift in Sources */,
+				52E3CC35249A79F400B9E23C /* FinishedQuizService.swift in Sources */,
 				52BF6DB8249006AA004AF4B1 /* QuizTableViewCell.swift in Sources */,
 				523671E4248B918400B8F96E /* Quiz.swift in Sources */,
 				52BF6DBF24901CD3004AF4B1 /* QuizzesViewController.swift in Sources */,
@@ -461,6 +465,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4MSJ826473;
 				INFOPLIST_FILE = QuizAppFinal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,6 +485,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4MSJ826473;
 				INFOPLIST_FILE = QuizAppFinal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

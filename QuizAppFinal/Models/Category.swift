@@ -9,10 +9,12 @@
 import Foundation
 import UIKit
 
-enum Category {
+enum Category: String {
     
-    case SPORTS
-    case SCIENCE
+    case SPORTS = "Sports"
+    case SCIENCE = "Science"
+    
+    static var numberOfCat = 2
     
     var color: UIColor {
         switch self {
