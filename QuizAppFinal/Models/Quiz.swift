@@ -6,6 +6,7 @@
 //  Copyright © 2020 five. All rights reserved.
 //
 
+/*
 import Foundation
 import UIKit
 
@@ -54,3 +55,4 @@ class Quiz {
     }
     
 }
+*/

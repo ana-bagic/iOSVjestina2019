@@ -19,9 +19,9 @@ enum Category: String {
     var color: UIColor {
         switch self {
         case .SPORTS:
-            return .red
+            return UIColor.FlatColor.Blue.Mariner ?? .blue
         case .SCIENCE:
-            return .green
+            return UIColor.FlatColor.Green.PersianGreen ?? .green
         }
     }
 

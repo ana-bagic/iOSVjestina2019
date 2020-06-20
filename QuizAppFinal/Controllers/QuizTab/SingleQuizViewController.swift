@@ -124,6 +124,8 @@ class SingleQuizViewController: UIViewController {
         self.errorLabel.isHidden = true
         self.startButton.layer.cornerRadius = 4
         self.leaderboardButton.layer.cornerRadius = 4
+        self.startButton.backgroundColor = UIColor.FlatColor.Blue.BlueWhale
+        self.leaderboardButton.backgroundColor = UIColor.FlatColor.Blue.BlueWhale
         
         setupSlideScrollView()
     }

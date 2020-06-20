@@ -27,6 +27,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         logoutButton.layer.cornerRadius = 4
+        logoutButton.backgroundColor = UIColor.FlatColor.Blue.BlueWhale
         
         let userDefaults = UserDefaults.standard
         if let username = userDefaults.string(forKey: "username") {

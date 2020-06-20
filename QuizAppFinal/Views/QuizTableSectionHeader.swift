@@ -17,10 +17,10 @@ class QuizTableSectionHeader: UIView {
         super.init(frame: frame)
         
         titleLabel = UILabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
-        titleLabel.textColor = UIColor.black
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleLabel.textColor = UIColor.white
         self.addSubview(titleLabel)
-        titleLabel.autoPinEdge(.top, to: .top, of: self, withOffset: 16.0)
+        titleLabel.autoPinEdge(.top, to: .top, of: self, withOffset: 14.0)
         titleLabel.autoAlignAxis(.vertical, toSameAxisOf: self)
     }
     

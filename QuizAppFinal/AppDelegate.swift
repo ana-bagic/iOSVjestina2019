@@ -17,14 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let userDefaults = UserDefaults.standard
-        
         if (userDefaults.string(forKey: "token") != nil) {
             setRootTabBarController()
         }
         else {
             setRootLoginController()
         }
-        
         window?.makeKeyAndVisible()
         
         return true
@@ -46,8 +44,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [navigationController1, navigationController2, thirdViewController]
         
-        let fontAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
-        UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
+        let selected = [NSAttributedString.Key.foregroundColor: UIColor.FlatColor.Blue.BlueWhale, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
+        let normal = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
+        
+        UITabBarItem.appearance().setTitleTextAttributes(normal as [NSAttributedString.Key : Any], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes(selected as [NSAttributedString.Key : Any], for: .selected)
+        
+        let array = tabBarController.customizableViewControllers
+        for controller in array! {
+            controller.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        }
         
         window?.rootViewController = tabBarController
     }
@@ -56,21 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = LoginViewController()
         window?.rootViewController = viewController
     }
-
-    // MARK: UISceneSession Lifecycle
-    /*
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-    */
 
 }
 

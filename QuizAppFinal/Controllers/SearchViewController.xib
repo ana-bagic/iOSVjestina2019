@@ -21,7 +21,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xbW-cB-h3h">
-                    <rect key="frame" x="35" y="104" width="32" height="35"/>
+                    <rect key="frame" x="35" y="84" width="32" height="35"/>
+                    <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="7Z3-Bx-kSr"/>
                     </constraints>
@@ -29,17 +30,17 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xGL-9g-Or7">
-                    <rect key="frame" x="0.0" y="179" width="414" height="717"/>
+                    <rect key="frame" x="0.0" y="159" width="414" height="737"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Hx-vS-fmG">
-                    <rect key="frame" x="92" y="105.5" width="70" height="32"/>
+                    <rect key="frame" x="87" y="84" width="80" height="35"/>
                     <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="70" id="r0D-pM-fQg"/>
-                        <constraint firstAttribute="height" constant="32" id="zUl-74-673"/>
+                        <constraint firstAttribute="width" constant="80" id="r0D-pM-fQg"/>
+                        <constraint firstAttribute="height" constant="35" id="zUl-74-673"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="Pretraži">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -53,9 +54,9 @@
                 <constraint firstItem="xGL-9g-Or7" firstAttribute="top" secondItem="xbW-cB-h3h" secondAttribute="bottom" constant="40" id="3Tw-5n-zPT"/>
                 <constraint firstItem="xGL-9g-Or7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3dV-Nm-t4S"/>
                 <constraint firstItem="xGL-9g-Or7" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="BhT-oj-Kf7"/>
-                <constraint firstItem="xbW-cB-h3h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="Ey2-Vy-2eG"/>
+                <constraint firstItem="xbW-cB-h3h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="Ey2-Vy-2eG"/>
                 <constraint firstItem="xbW-cB-h3h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="cqw-BK-sXd"/>
-                <constraint firstItem="2Hx-vS-fmG" firstAttribute="leading" secondItem="xbW-cB-h3h" secondAttribute="trailing" constant="25" id="eDB-Ij-FAn"/>
+                <constraint firstItem="2Hx-vS-fmG" firstAttribute="leading" secondItem="xbW-cB-h3h" secondAttribute="trailing" constant="20" id="eDB-Ij-FAn"/>
                 <constraint firstAttribute="bottom" secondItem="xGL-9g-Or7" secondAttribute="bottom" id="fWp-Z7-Puu"/>
                 <constraint firstItem="2Hx-vS-fmG" firstAttribute="centerY" secondItem="xbW-cB-h3h" secondAttribute="centerY" id="vvY-kE-WoC"/>
                 <constraint firstItem="xGL-9g-Or7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zPT-oB-KAR"/>

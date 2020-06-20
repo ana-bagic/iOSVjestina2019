@@ -6,6 +6,7 @@
 //  Copyright © 2020 five. All rights reserved.
 //
 
+/*
 import Foundation
 
 class Question {
@@ -33,3 +34,4 @@ class Question {
         }
     }
 }
+*/

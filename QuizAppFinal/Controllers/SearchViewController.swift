@@ -49,6 +49,8 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         searchText.autoSetDimension(.width, toSize: UIScreen.main.bounds.width * 0.6)
         tableView.isHidden = true
+        searchButton.layer.cornerRadius = 4
+        searchButton.backgroundColor = UIColor.FlatColor.Blue.BlueWhale
         
         bindViewModel()
         setupKeyboard()
@@ -59,7 +61,7 @@ class SearchViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
-        tableView.frame = CGRect(x: 0, y: 135, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 135)
+        tableView.frame = CGRect(x: 0, y: 115, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 115)
             
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(SearchViewController.refresh), for: UIControl.Event.valueChanged)

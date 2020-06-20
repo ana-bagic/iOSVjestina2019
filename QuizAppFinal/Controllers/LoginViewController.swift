@@ -40,8 +40,7 @@ class LoginViewController: UIViewController {
                         
                         print(jsonDict)
                         
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.setRootTabBarController()
+                        self.animateOut()
                     }
                     else {
                         self.errorLabel.isHidden = false
@@ -54,9 +53,81 @@ class LoginViewController: UIViewController {
         }
     }
     
+    func animateOut() {
+        let translateY = -(UIScreen.main.bounds.height * 0.7)
+        
+        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.appNameLabel.transform = CGAffineTransform(translationX: 0, y: translateY)
+        })
+        
+        UIView.animate(withDuration: 1, delay: 0.1, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.usernameLabel.transform = CGAffineTransform(translationX: 0, y: translateY)
+            self.usernameField.transform = CGAffineTransform(translationX: 0, y: translateY)
+        })
+        
+        UIView.animate(withDuration: 1, delay: 0.2, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.passwordLabel.transform = CGAffineTransform(translationX: 0, y: translateY)
+            self.passwordField.transform = CGAffineTransform(translationX: 0, y: translateY)
+        })
+        
+        UIView.animate(withDuration: 1, delay: 0.3, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.loginButton.transform = CGAffineTransform(translationX: 0, y: translateY)
+            self.errorLabel.transform = CGAffineTransform(translationX: 0, y: translateY)
+        }, completion: {(finished:Bool) in
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.setRootTabBarController()
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let translateX = -(UIScreen.main.bounds.width * 0.75)
+        
+        self.appNameLabel.alpha = 0
+        self.usernameLabel.alpha = 0
+        self.usernameField.alpha = 0
+        self.passwordLabel.alpha = 0
+        self.passwordField.alpha = 0
+        self.loginButton.alpha = 0
+        
+        self.appNameLabel.transform = CGAffineTransform(scaleX: 0, y: 0)
+        self.usernameLabel.transform = CGAffineTransform(translationX: translateX, y: 0)
+        self.usernameField.transform = CGAffineTransform(translationX: translateX, y: 0)
+        self.passwordLabel.transform = CGAffineTransform(translationX: translateX, y: 0)
+        self.passwordField.transform = CGAffineTransform(translationX: translateX, y: 0)
+        self.loginButton.transform = CGAffineTransform(translationX: translateX, y: 0)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 1.5, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.appNameLabel.alpha = 1
+            self.appNameLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+        
+        UIView.animate(withDuration: 1.5, delay: 0.4, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.usernameLabel.alpha = 1
+            self.usernameField.alpha = 1
+            self.usernameLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.usernameField.transform = CGAffineTransform(translationX: 0, y: 0)
+        })
+        
+        UIView.animate(withDuration: 1.5, delay: 0.8, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.passwordLabel.alpha = 1
+            self.passwordField.alpha = 1
+            self.passwordLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.passwordField.transform = CGAffineTransform(translationX: 0, y: 0)
+        })
+        
+        UIView.animate(withDuration: 1.5, delay: 1.2, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.loginButton.alpha = 1
+            self.loginButton.transform = CGAffineTransform(translationX: 0, y: 0)
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.errorLabel.isHidden = true
+        self.loginButton.backgroundColor = UIColor.FlatColor.Blue.BlueWhale
+    
         loginButton.layer.cornerRadius = 4
         //setupKeyboard()
     }
