@@ -8,36 +8,30 @@
 
 import Foundation
 
-/*
 struct LeaderboardCellModel {
     
-    let title: String
-    let description: String
-    let level: Int
-    let category: Category
-    let imageUrl: URL?
+    let username: String
+    let time: Float
     
-    init(quiz: Quiz) {
-        self.title = quiz.title
-        self.description = quiz.description
-        self.level = quiz.level
-        self.category = quiz.category
-        self.imageUrl = URL(string: quiz.image)
+    init(score: Score) {
+        self.username = score.username
+        self.time = score.time
     }
 }
 
 class LeaderboardViewModel {
     
-    var quizzes: Any?
+    var scores: [Score]?
+    var quiz: Quiz? = nil
+        
+    init(quiz: Quiz) {
+        self.quiz = quiz
+    }
     
     func getData(urlString: String, completion: @escaping (() -> Void))  {
         
-        let leaderboardService = LeaderboardService()
-        
-        leaderboardService.getData(urlString: urlString) { [weak self] (quizzes) in
-            self?.quizzes = quizzes
-            
-            print(quizzes!)
+        LeaderboardService().getData(urlString: urlString) { [weak self] (scores) in
+            self?.scores = scores
             
             completion()
         }
@@ -52,20 +46,14 @@ class LeaderboardViewModel {
         }
         return nil
     }
+    */
 
-    func quiz(atIndex index: Int) -> QuizCellModel? {
-        guard let quizzes = quizzes else {
-            return nil
+    func score(atIndex index: Int) -> LeaderboardCellModel? {
+        if let scores = scores {
+            return LeaderboardCellModel(score: scores[index])
         }
         
-        let quizCellModel = QuizCellModel(quiz: quizzes[index])
-        return quizCellModel
+        return nil
     }
-    
-    func numberOfQuizzes() -> Int {
-        return quizzes?.count ?? 0
-    }
-    */
     
 }
-*/

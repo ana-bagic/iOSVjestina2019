@@ -8,15 +8,12 @@
 
 import UIKit
 
-/*
 class LeaderboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl: UIRefreshControl!
     let cellReuseIdentifier = "cellReuseIdentifier"
-        
     var viewModel: LeaderboardViewModel!
-    //var numberOfQuizzes = 1
         
     convenience init(viewModel: LeaderboardViewModel) {
         self.init()
@@ -26,10 +23,9 @@ class LeaderboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        //setupTableView()
+        setupTableView()
     }
     
-    /*
     func setupTableView() {
         tableView.backgroundColor = UIColor.lightGray
         tableView.delegate = self
@@ -38,18 +34,18 @@ class LeaderboardViewController: UIViewController {
         tableView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         
         refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(QuizzesViewController.refresh), for: UIControl.Event.valueChanged)
+        refreshControl.addTarget(self, action: #selector(LeaderboardViewController.refresh), for: UIControl.Event.valueChanged)
         tableView.refreshControl = refreshControl
-        tableView.register(UINib(nibName: "QuizTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(UINib(nibName: "LeaderboardCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
     }
-    */
     
     func bindViewModel() {
-        let url = "https://iosquiz.herokuapp.com/api/score?quiz_id=4"
-        
-        viewModel.getData(urlString: url) {
-            //self.numberOfQuizzes = self.viewModel.numberOfQuizzes()
-            //self.refresh()
+        if let quizId = viewModel.quiz?.id {
+            let url = "https://iosquiz.herokuapp.com/api/score?quiz_id=" + String(quizId)
+            
+            viewModel.getData(urlString: url) {
+                self.refresh()
+            }
         }
     }
         
@@ -60,72 +56,32 @@ class LeaderboardViewController: UIViewController {
         }
     }
       
-    /*
-    func countCategoryQuizzes(category: Category) -> Int {
-        var x = 0
-        
-        for i in 0...numberOfQuizzes - 1 {
-            if viewModel.quiz(atIndex: i)?.category == category {
-                x += 1
-            }
-        }
-        
-        return x
-    }
-    */
 }
 
 extension LeaderboardViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140.0
-    }
-        
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = QuizTableSectionHeader()
-            
-        view.titleLabel.text = "Leaderboard"
-        view.backgroundColor = .blue
-            
-        return view
-    }
-        
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50.0
+        return 90.0
     }
 }
 
-/*
-extension QuizzesViewController: UITableViewDataSource {
+extension LeaderboardViewController: UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! LeaderboardCell
             
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! QuizTableViewCell
-            
-        if indexPath.section == 0 {
-            if let quiz = viewModel.quiz(atIndex: indexPath.row) {
-                    cell.setup(withQuiz: quiz)
-            }
-        }
-        else {
-            if let quiz = viewModel.quiz(atIndex: countCategoryQuizzes(category: Category.SPORTS) + indexPath.row) {
-                cell.setup(withQuiz: quiz)
-            }
+        if let score = viewModel.score(atIndex: indexPath.row) {
+                cell.setup(withScore: score)
         }
         return cell
     }
         
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Category.numberOfCat
+        return 1
     }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (section == 0) {
-            return countCategoryQuizzes(category: Category.SPORTS)
-        }
-        else {
-            return countCategoryQuizzes(category: Category.SCIENCE)
-        }
+        return 20
     }
 }
-*/
- */

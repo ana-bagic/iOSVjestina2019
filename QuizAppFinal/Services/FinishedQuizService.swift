@@ -11,7 +11,6 @@ import UIKit
 
 class FinishedQuizService {
     
-    //odgovor servera kao enum
     func send(quiz: Int, user: String, time: Double, correct: Int, completion: @escaping ((Any?) -> Void)){
 
         let stringURL = "https://iosquiz.herokuapp.com/api/result"

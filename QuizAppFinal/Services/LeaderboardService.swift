@@ -11,11 +11,10 @@ import UIKit
 
 class LeaderboardService {
     
-    func getData(urlString: String, completion: @escaping ((Any?) -> Void)){
+    func getData(urlString: String, completion: @escaping (([Score]?) -> Void)){
         
         if let url = URL(string: urlString) {
             
-            let parameters: [String: Any] = ["quiz_id": 4]
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.addValue("application/json", forHTTPHeaderField: "Content-type")
@@ -28,20 +27,24 @@ class LeaderboardService {
                 request.addValue(token, forHTTPHeaderField: "Authorization")
             }
             
-            do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-            }
-            catch {
-                completion(nil)
-            }
-            
-            URLSession.shared.dataTask(with: url) {
+            URLSession.shared.dataTask(with: request) {
                 data, response, error in
                 if let data = data {
                     
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
-                        completion(json)
+                        var scores = [Score]()
+                        if let jsonDict = json as? [Any] {
+                            for score in jsonDict {
+                                if let s = Score(json: score) {
+                                    scores.append(s)
+                                }
+                            }
+                            completion(scores)
+                        }
+                        else {
+                            completion(nil)
+                        }
                     }
                     catch {
                         completion(nil)

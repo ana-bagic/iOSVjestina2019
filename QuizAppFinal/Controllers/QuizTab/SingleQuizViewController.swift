@@ -31,8 +31,10 @@ class SingleQuizViewController: UIViewController {
     }
     
     @IBAction func leaderboard(_ sender: Any) {
-        //let leaderboardViewController = LeaderboardViewController(viewModel: LeaderboardViewModel())
-        //navigationController?.pushViewController(leaderboardViewController, animated: true)
+        if let quiz = viewModel.quiz {
+            let leaderboardViewController = LeaderboardViewController(viewModel: LeaderboardViewModel(quiz: quiz))
+            navigationController?.pushViewController(leaderboardViewController, animated: true)
+        }
     }
     
     @objc func buttonClicked(_ sender: UIButton) {
