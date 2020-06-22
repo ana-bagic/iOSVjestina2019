@@ -6,6 +6,7 @@
 //  Copyright © 2020 five. All rights reserved.
 //
 
+/*
 import UIKit
 
 class InitialViewController: UIViewController {
@@ -88,3 +89,4 @@ class InitialViewController: UIViewController {
     }
 
 }
+*/

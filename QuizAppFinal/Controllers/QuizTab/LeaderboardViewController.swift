@@ -8,6 +8,7 @@
 
 import UIKit
 
+/*
 class LeaderboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
@@ -127,3 +128,4 @@ extension QuizzesViewController: UITableViewDataSource {
     }
 }
 */
+ */

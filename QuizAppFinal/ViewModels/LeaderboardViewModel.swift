@@ -8,6 +8,7 @@
 
 import Foundation
 
+/*
 struct LeaderboardCellModel {
     
     let title: String
@@ -67,3 +68,4 @@ class LeaderboardViewModel {
     */
     
 }
+*/

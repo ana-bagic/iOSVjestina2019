@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct QuizCellModel {
     
@@ -19,9 +20,14 @@ struct QuizCellModel {
     
     init(quiz: Quiz) {
         self.title = quiz.title
-        self.description = quiz.description
+        self.description = quiz.desc
         self.level = quiz.level
-        self.category = quiz.category
+        if (quiz.category == "SPORTS") {
+            self.category = .SPORTS
+        }
+        else {
+            self.category = .SCIENCE
+        }
         self.imageUrl = URL(string: quiz.image)
         self.id = quiz.id
     }
@@ -31,14 +37,33 @@ class QuizzesViewModel {
     
     var quizzes: [Quiz]?
     
-    func fetchQuiz(completion: @escaping (() -> Void))  {
+    // empty CoreData
+    /*
+    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Quiz.fetchRequest()
+    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+    do {
+        try DataController.shared.persistentContainer.viewContext.execute(deleteRequest)
+    }
+    catch let error as NSError {
+        print(error)
+    }
+    completion()
+     */
+    
+    func fetchQuizFromData(completion: @escaping (() -> Void))  {
         
-        let quizService = QuizService()
+        self.quizzes = DataController.shared.fetchQuizzes()
+        completion()
         
-        quizService.fetchQuiz { [weak self] (quizzes) in
-            self?.quizzes = quizzes
+    }
+    
+    func fetchQuizFromInternet(completion: @escaping (() -> Void)) {
+        
+        QuizService().fetchQuiz { [weak self] (quizzes) in
+            self?.quizzes = DataController.shared.fetchQuizzes()
             completion()
         }
+
     }
     
     func viewModel(atIndex index: Int) -> SingleQuizViewModel? {
@@ -48,6 +73,20 @@ class QuizzesViewModel {
             }
         }
         return nil
+    }
+    
+    func viewModelOfCategory(category: String) -> [SingleQuizViewModel] {
+        var returnViewModels: [SingleQuizViewModel] = []
+        
+        if let quizzes = quizzes {
+            for quiz in quizzes {
+                if quiz.category == category {
+                    returnViewModels.append(SingleQuizViewModel(quiz: quiz))
+                }
+            }
+        }
+        
+        return returnViewModels
     }
     
     func viewModelForId(id: Int) -> QuizCellModel? {
@@ -61,13 +100,26 @@ class QuizzesViewModel {
         return nil
     }
 
-    func quiz(atIndex index: Int) -> QuizCellModel? {
-        guard let quizzes = quizzes else {
-            return nil
+    func quizzesOfCategory(category: String) -> [QuizCellModel] {
+        var returnQuizzes: [QuizCellModel] = []
+        
+        if let quizzes = quizzes {
+            for quiz in quizzes {
+                if quiz.category == category {
+                    returnQuizzes.append(QuizCellModel(quiz: quiz))
+                }
+            }
         }
         
-        let quizCellModel = QuizCellModel(quiz: quizzes[index])
-        return quizCellModel
+        return returnQuizzes
+    }
+    
+    func quiz(atIndex index: Int) -> QuizCellModel? {
+        if let quizzes = quizzes {
+            return QuizCellModel(quiz: quizzes[index])
+        }
+        
+        return nil
     }
     
     func numberOfQuizzes() -> Int {

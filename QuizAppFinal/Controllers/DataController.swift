@@ -24,10 +24,9 @@ class DataController {
         return container
     }()
     
-    func fetchReviews() -> [Quiz]? {
-        let request: NSFetchRequest<Quiz> = Quiz.fetchReviews
+    func fetchQuizzes() -> [Quiz]? {
+        let request: NSFetchRequest<Quiz> = Quiz.fetchRequest()
         
-        // NSFetchRequestu mozemo postaviti NSPredicate koji sadrzi uvjete koje objekti trebaju zadovoljiti da bi se dohvatili (slicno kao WHERE u SQL)
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         let context = DataController.shared.persistentContainer.viewContext
         

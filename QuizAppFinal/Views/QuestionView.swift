@@ -22,7 +22,7 @@ class QuestionView: UIView, UIScrollViewDelegate {
         question?.text = quest.question
         let correct = quest.correct_answer
         
-        answer1?.setTitle(quest.answers[0], for: .normal)
+        answer1?.setTitle(quest.a, for: .normal)
         if (correct == 0) {
             answer1?.tag = 1
         }
@@ -30,7 +30,7 @@ class QuestionView: UIView, UIScrollViewDelegate {
             answer1?.tag = 0
         }
         
-        answer2?.setTitle(quest.answers[1], for: .normal)
+        answer2?.setTitle(quest.b, for: .normal)
         if (correct == 1) {
             answer2?.tag = 1
         }
@@ -38,7 +38,7 @@ class QuestionView: UIView, UIScrollViewDelegate {
             answer2?.tag = 0
         }
         
-        answer3?.setTitle(quest.answers[2], for: .normal)
+        answer3?.setTitle(quest.c, for: .normal)
         if (correct == 2) {
             answer3?.tag = 1
         }
@@ -46,7 +46,7 @@ class QuestionView: UIView, UIScrollViewDelegate {
             answer3?.tag = 0
         }
         
-        answer4?.setTitle(quest.answers[3], for: .normal)
+        answer4?.setTitle(quest.d, for: .normal)
         if (correct == 3) {
             answer4?.tag = 1
         }

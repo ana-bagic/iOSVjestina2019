@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reachability
 
 class QuizzesViewController: UIViewController {
 
@@ -26,9 +27,24 @@ class QuizzesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindViewModel()
+        bindViewModelFromCoreData()
         setupTableView()
         setupKeyboard()
+        
+        do {
+            let reachability = try Reachability()
+            
+            switch reachability.connection {
+            case .unavailable:
+                break
+            default:
+                bindViewModelFromInternet()
+            }
+        }
+        catch {
+            print(error)
+        }
+        
     }
     
     func setupTableView() {
@@ -48,8 +64,15 @@ class QuizzesViewController: UIViewController {
         tableView.tableFooterView = tableFooterView
     }
     
-    func bindViewModel() {
-        viewModel.fetchQuiz {
+    func bindViewModelFromCoreData() {
+        viewModel.fetchQuizFromData {
+            self.numberOfQuizzes = self.viewModel.numberOfQuizzes()
+            self.refresh()
+        }
+    }
+    
+    func bindViewModelFromInternet() {
+        viewModel.fetchQuizFromInternet {
             self.numberOfQuizzes = self.viewModel.numberOfQuizzes()
             self.refresh()
         }
@@ -91,7 +114,7 @@ class QuizzesViewController: UIViewController {
     func countCategoryQuizzes(category: Category) -> Int {
         var x = 0
         
-        for i in 0...numberOfQuizzes - 1 {
+        for i in 0...max(numberOfQuizzes - 1, 0)  {
             if viewModel.quiz(atIndex: i)?.category == category {
                 x += 1
             }
@@ -130,15 +153,13 @@ extension QuizzesViewController: UITableViewDelegate {
         
         switch indexPath.section {
         case 0:
-            if let viewModel = viewModel.viewModel(atIndex: indexPath.row) {
-                let singleQuizViewController = SingleQuizViewController(viewModel: viewModel)
-                navigationController?.pushViewController(singleQuizViewController, animated: true)
-            }
+            let viewModels = viewModel.viewModelOfCategory(category: "SPORTS")
+            let singleQuizViewController = SingleQuizViewController(viewModel: viewModels[indexPath.row])
+            navigationController?.pushViewController(singleQuizViewController, animated: true)
         default:
-            if let viewModel = viewModel.viewModel(atIndex: countCategoryQuizzes(category: Category.SPORTS) + indexPath.row) {
-                let singleQuizViewController = SingleQuizViewController(viewModel: viewModel)
-                navigationController?.pushViewController(singleQuizViewController, animated: true)
-            }
+            let viewModels = viewModel.viewModelOfCategory(category: "SCIENCE")
+            let singleQuizViewController = SingleQuizViewController(viewModel: viewModels[indexPath.row])
+            navigationController?.pushViewController(singleQuizViewController, animated: true)
         }
     }
 }
@@ -149,15 +170,13 @@ extension QuizzesViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! QuizTableViewCell
         
-        if indexPath.section == 0 {
-            if let quiz = viewModel.quiz(atIndex: indexPath.row) {
-                cell.setup(withQuiz: quiz)
-            }
-        }
-        else {
-            if let quiz = viewModel.quiz(atIndex: countCategoryQuizzes(category: Category.SPORTS) + indexPath.row) {
-                cell.setup(withQuiz: quiz)
-            }
+        switch indexPath.section {
+        case 0:
+            let sportQuizzes = viewModel.quizzesOfCategory(category: "SPORTS")
+            cell.setup(withQuiz: sportQuizzes[indexPath.row])
+        default:
+            let scienceQuizzes = viewModel.quizzesOfCategory(category: "SCIENCE")
+            cell.setup(withQuiz: scienceQuizzes[indexPath.row])
         }
         return cell
     }

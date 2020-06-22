@@ -17,22 +17,26 @@ class QuizService {
         
         if let url = URL(string: stringURL) {
             
-            URLSession.shared.dataTask(with: url) {
+            let request = URLRequest(url: url)
+            URLSession.shared.dataTask(with: request) {
                 data, response, error in
                 if let data = data {
                     
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
-                        var quizzes: [Quiz] = []
+                        var quizzes = [Quiz]()
                         if let jsonDict = json as? [String: Any],
                             let elements = jsonDict["quizzes"] as? [Any] {
                                 for quiz in elements {
-                                    if let q = Quiz(json: quiz) {
+                                    if let q = Quiz.createFrom(json: quiz) {
                                         quizzes.append(q)
                                     }
                                 }
+                            completion(quizzes)
                         }
-                        completion(quizzes)
+                        else {
+                            completion(nil)
+                        }
                     }
                     catch {
                         completion(nil)

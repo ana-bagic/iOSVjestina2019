@@ -71,7 +71,7 @@ class SearchViewController: UIViewController {
     }
         
     func bindViewModel() {
-        viewModel.fetchQuiz {
+        viewModel.fetchQuizFromData {
             self.numberOfQuizzes = self.viewModel.numberOfQuizzes()
         }
     }

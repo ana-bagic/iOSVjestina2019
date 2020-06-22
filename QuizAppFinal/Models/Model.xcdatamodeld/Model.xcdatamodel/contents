@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Answer" representedClassName="Answer" syncable="YES">
-        <attribute name="a" optional="YES" attributeType="String"/>
-        <attribute name="b" optional="YES" attributeType="String"/>
-        <attribute name="c" optional="YES" attributeType="String"/>
-        <attribute name="d" optional="YES" attributeType="String"/>
-        <relationship name="toQuestion" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answers" inverseEntity="Question"/>
-    </entity>
     <entity name="Question" representedClassName="Question" syncable="YES">
-        <attribute name="correct_answer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="question" optional="YES" attributeType="String"/>
-        <relationship name="answers" toMany="YES" deletionRule="Cascade" destinationEntity="Answer" inverseName="toQuestion" inverseEntity="Answer"/>
+        <attribute name="a" attributeType="String"/>
+        <attribute name="b" attributeType="String"/>
+        <attribute name="c" attributeType="String"/>
+        <attribute name="correct_answer" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="d" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="question" attributeType="String"/>
         <relationship name="inQuiz" maxCount="1" deletionRule="Nullify" destinationEntity="Quiz" inverseName="questions" inverseEntity="Quiz"/>
     </entity>
     <entity name="Quiz" representedClassName="Quiz" syncable="YES">
-        <attribute name="category" optional="YES" attributeType="String"/>
-        <attribute name="desc" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="image" optional="YES" attributeType="String"/>
-        <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="questions" toMany="YES" deletionRule="Cascade" destinationEntity="Question" inverseName="inQuiz" inverseEntity="Question"/>
+        <attribute name="category" attributeType="String"/>
+        <attribute name="desc" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" attributeType="String"/>
+        <attribute name="level" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="questions" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Question" inverseName="inQuiz" inverseEntity="Question"/>
     </entity>
     <elements>
+        <element name="Question" positionX="179.12109375" positionY="-33.15234375" width="128" height="163"/>
         <element name="Quiz" positionX="-63" positionY="-18" width="128" height="148"/>
-        <element name="Question" positionX="-54" positionY="-9" width="128" height="118"/>
-        <element name="Answer" positionX="-36" positionY="45" width="128" height="118"/>
     </elements>
 </model>

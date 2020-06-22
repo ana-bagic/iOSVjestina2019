@@ -12,13 +12,13 @@ import CoreData
 
 extension Quiz {
 
-    @NSManaged public var id: Int32
-    @NSManaged public var title: String?
-    @NSManaged public var desc: String?
-    @NSManaged public var level: Int16
-    @NSManaged public var image: String?
-    @NSManaged public var category: String?
-    @NSManaged public var questions: NSSet?
+    @NSManaged public var id: Int
+    @NSManaged public var title: String
+    @NSManaged public var desc: String
+    @NSManaged public var level: Int
+    @NSManaged public var image: String
+    @NSManaged public var category: String
+    @NSManaged public var questions: [Question]
     
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Quiz> {
         return NSFetchRequest<Quiz>(entityName: "Quiz")
