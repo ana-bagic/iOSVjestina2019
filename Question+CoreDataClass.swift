@@ -47,6 +47,7 @@ public class Question: NSManagedObject {
             let correct_answer = jsonDict["correct_answer"] as? Int {
             
             if let quest = Question.firstOrCreate(withId: id) {
+                quest.id = id
                 quest.question = question
                 quest.correct_answer = correct_answer
                 quest.a = answers[0]

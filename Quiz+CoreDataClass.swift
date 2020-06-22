@@ -18,11 +18,11 @@ public class Quiz: NSManagedObject {
         return "Quiz"
     }
     
-    class func firstOrCreate(withTitle title: String) -> Quiz? {
+    class func firstOrCreate(withId id: Int) -> Quiz? {
         let context = DataController.shared.persistentContainer.viewContext
         
         let request: NSFetchRequest<Quiz> = Quiz.fetchRequest()
-        request.predicate = NSPredicate(format: "title == %@", title)
+        request.predicate = NSPredicate(format: "id = %i", id)
         request.returnsObjectsAsFaults = false
 
         do {
@@ -50,7 +50,8 @@ public class Quiz: NSManagedObject {
             let image = jsonDict["image"] as? String,
             let jsonQuestions = jsonDict["questions"] as? [Any] {
             
-            if let quiz = Quiz.firstOrCreate(withTitle: title) {
+            if let quiz = Quiz.firstOrCreate(withId: id) {
+                quiz.title = title
                 quiz.id = id
                 quiz.desc = description
                 quiz.category = category

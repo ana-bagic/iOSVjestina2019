@@ -47,7 +47,6 @@ class QuizzesViewModel {
     catch let error as NSError {
         print(error)
     }
-    completion()
      */
     
     func fetchQuizFromData(completion: @escaping (() -> Void))  {
@@ -65,7 +64,7 @@ class QuizzesViewModel {
         }
 
     }
-    
+
     func viewModel(atIndex index: Int) -> SingleQuizViewModel? {
         if let quizzes = quizzes {
             if index >= 0 && index < quizzes.count {
@@ -114,12 +113,18 @@ class QuizzesViewModel {
         return returnQuizzes
     }
     
-    func quiz(atIndex index: Int) -> QuizCellModel? {
+    func quizzesContain(word: String) -> [QuizCellModel] {
+        var returnQuizzes: [QuizCellModel] = []
+           
         if let quizzes = quizzes {
-            return QuizCellModel(quiz: quizzes[index])
+            for quiz in quizzes {
+                if quiz.description.lowercased().contains(word) || quiz.title.lowercased().contains(word) {
+                    returnQuizzes.append(QuizCellModel(quiz: quiz))
+                }
+            }
         }
-        
-        return nil
+           
+        return returnQuizzes
     }
     
     func numberOfQuizzes() -> Int {

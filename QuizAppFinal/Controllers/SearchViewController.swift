@@ -25,14 +25,7 @@ class SearchViewController: UIViewController {
         searchResult.removeAll()
         
         if let searchBy = searchText.text?.lowercased() {
-            
-            for n in 0...numberOfQuizzes - 1 {
-                if let quiz = viewModel.quiz(atIndex: n) {
-                    if (quiz.description.lowercased().contains(searchBy) || quiz.title.lowercased().contains(searchBy)) {
-                        searchResult.append(quiz)
-                    }
-                }
-            }
+            searchResult = viewModel.quizzesContain(word: searchBy)
             
             setupTableView()
             self.refresh()

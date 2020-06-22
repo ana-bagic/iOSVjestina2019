@@ -110,18 +110,6 @@ class QuizzesViewController: UIViewController {
         }
         return nil
     }
-    
-    func countCategoryQuizzes(category: Category) -> Int {
-        var x = 0
-        
-        for i in 0...max(numberOfQuizzes - 1, 0)  {
-            if viewModel.quiz(atIndex: i)?.category == category {
-                x += 1
-            }
-        }
-        
-        return x
-    }
 }
 
 extension QuizzesViewController: UITableViewDelegate {
@@ -187,10 +175,10 @@ extension QuizzesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
-            return countCategoryQuizzes(category: Category.SPORTS)
+            return viewModel.quizzesOfCategory(category: "SPORTS").count
         }
         else {
-            return countCategoryQuizzes(category: Category.SCIENCE)
+            return viewModel.quizzesOfCategory(category: "SCIENCE").count
         }
     }
 }
