@@ -10,9 +10,9 @@ import UIKit
 
 class LeaderboardCell: UITableViewCell {
 
-    @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var time: UILabel!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var username: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

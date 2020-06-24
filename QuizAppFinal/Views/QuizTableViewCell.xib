@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-dB-YeZ">
-                        <rect key="frame" x="124" y="90" width="200" height="50"/>
+                        <rect key="frame" x="124" y="85" width="200" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="Typ-Xh-u2S"/>
                             <constraint firstAttribute="width" constant="200" id="rp5-AZ-6o5"/>
@@ -57,7 +57,7 @@
                     <constraint firstItem="ZR5-0t-4pw" firstAttribute="leading" secondItem="ILY-Wb-bj2" secondAttribute="trailing" id="FKZ-0v-xmO"/>
                     <constraint firstItem="ILY-Wb-bj2" firstAttribute="leading" secondItem="fR2-g7-92l" secondAttribute="trailing" id="Kha-mi-rFr"/>
                     <constraint firstItem="ZR5-0t-4pw" firstAttribute="top" secondItem="fR2-g7-92l" secondAttribute="top" id="LmP-vL-cLp"/>
-                    <constraint firstItem="cmH-dB-YeZ" firstAttribute="top" secondItem="ysj-yt-PX4" secondAttribute="bottom" constant="10" id="PQ4-pP-7yR"/>
+                    <constraint firstItem="cmH-dB-YeZ" firstAttribute="top" secondItem="ysj-yt-PX4" secondAttribute="bottom" constant="5" id="PQ4-pP-7yR"/>
                     <constraint firstItem="ILY-Wb-bj2" firstAttribute="top" secondItem="fR2-g7-92l" secondAttribute="top" id="Uwo-tv-zcF"/>
                     <constraint firstItem="ahn-qq-2K8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="V33-Lp-Zbk"/>
                     <constraint firstItem="ysj-yt-PX4" firstAttribute="leading" secondItem="ahn-qq-2K8" secondAttribute="trailing" constant="12" id="Yux-9o-NfH"/>

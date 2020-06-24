@@ -25,20 +25,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8z-CE-7Yg">
-                    <rect key="frame" x="150" y="114" width="75.333333333333314" height="22"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <rect key="frame" x="143" y="114" width="89" height="25.333333333333343"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RVQ-pH-r0h">
-                    <rect key="frame" x="112.66666666666669" y="146" width="150" height="150"/>
+                    <rect key="frame" x="112.66666666666669" y="149.33333333333334" width="150" height="150.00000000000003"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="7kb-DQ-bVn"/>
                         <constraint firstAttribute="height" constant="150" id="AVk-Ue-QKr"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wy8-LJ-frx">
-                    <rect key="frame" x="50" y="308" width="100" height="34"/>
+                    <rect key="frame" x="50" y="311.33333333333331" width="100" height="34"/>
                     <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="l56-aN-IKh"/>
@@ -64,7 +64,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIZ-TZ-dRE">
-                    <rect key="frame" x="185" y="308" width="125" height="34"/>
+                    <rect key="frame" x="185" y="311.33333333333331" width="125" height="34"/>
                     <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="125" id="vSH-tT-HjX"/>

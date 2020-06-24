@@ -39,11 +39,11 @@ class SingleQuizViewController: UIViewController {
     
     @objc func buttonClicked(_ sender: UIButton) {
         if (sender.tag == 1) {
-            sender.backgroundColor = .green
+            sender.backgroundColor = UIColor.FlatColor.Green.ChateauGreen
             numberOfCorrect += 1
         }
         else {
-            sender.backgroundColor = .red
+            sender.backgroundColor = UIColor.FlatColor.Red.WellRead
         }
         
         if (currentPage + 1 < viewModel.quiz?.questions.count ?? 0) {

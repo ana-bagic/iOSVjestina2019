@@ -98,26 +98,26 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 1.5, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.appNameLabel.alpha = 1
             self.appNameLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
         
-        UIView.animate(withDuration: 1.5, delay: 0.4, options: UIView.AnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: 1, delay: 0.3, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.usernameLabel.alpha = 1
             self.usernameField.alpha = 1
             self.usernameLabel.transform = CGAffineTransform(translationX: 0, y: 0)
             self.usernameField.transform = CGAffineTransform(translationX: 0, y: 0)
         })
         
-        UIView.animate(withDuration: 1.5, delay: 0.8, options: UIView.AnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: 1, delay: 0.6, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.passwordLabel.alpha = 1
             self.passwordField.alpha = 1
             self.passwordLabel.transform = CGAffineTransform(translationX: 0, y: 0)
             self.passwordField.transform = CGAffineTransform(translationX: 0, y: 0)
         })
         
-        UIView.animate(withDuration: 1.5, delay: 1.2, options: UIView.AnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: 1, delay: 0.9, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.loginButton.alpha = 1
             self.loginButton.transform = CGAffineTransform(translationX: 0, y: 0)
         })
@@ -126,9 +126,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.errorLabel.isHidden = true
-        self.loginButton.backgroundColor = UIColor.FlatColor.Blue.BlueWhale
-    
-        loginButton.layer.cornerRadius = 4
+        self.loginButton.backgroundColor = UIColor.FlatColor.Orange.Sun
+        self.loginView.backgroundColor = UIColor.FlatColor.Blue.BlueWhale
+        self.loginButton.layer.cornerRadius = 4
+        self.appNameLabel.textColor = .white
+        self.usernameLabel.textColor = .white
+        self.passwordLabel.textColor = .white
         //setupKeyboard()
     }
     

@@ -74,22 +74,22 @@ class QuestionView: UIView, UIScrollViewDelegate {
         
         answer1 = UIButton(frame: CGRect(origin: CGPoint(x: startX, y: 100),
                             size: CGSize(width: 250, height: 35)))
-        answer1?.setTitleColor(UIColor.black, for: .normal)
+        answer1?.setTitleColor(.black, for: .normal)
         answer1?.contentHorizontalAlignment = .left
     
         answer2 = UIButton(frame: CGRect(origin: CGPoint(x: startX, y: 140),
                             size: CGSize(width: 250, height: 35)))
-        answer2?.setTitleColor(UIColor.black, for: .normal)
+        answer2?.setTitleColor(.black, for: .normal)
         answer2?.contentHorizontalAlignment = .left
         
         answer3 = UIButton(frame: CGRect(origin: CGPoint(x: startX, y: 180),
                             size: CGSize(width: 250, height: 35)))
-        answer3?.setTitleColor(UIColor.black, for: .normal)
+        answer3?.setTitleColor(.black, for: .normal)
         answer3?.contentHorizontalAlignment = .left
         
         answer4 = UIButton(frame: CGRect(origin: CGPoint(x: startX, y: 220),
                             size: CGSize(width: 250, height: 35)))
-        answer4?.setTitleColor(UIColor.black, for: .normal)
+        answer4?.setTitleColor(.black, for: .normal)
         answer4?.contentHorizontalAlignment = .left
         
         self.addSubview(question)
